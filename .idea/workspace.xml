@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cf4f7bbe-1eff-4dfd-937f-3a0edfa80ae7" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/dataManagement/assets/js/datePicker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dataManagement/assets/js/personelInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.github/workflows/main.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/bazmenAdmin.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/dataSources.local.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/dataSources/ca34cd5a-51c4-4406-b930-c70e49e90853.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/dataSources/ca34cd5a-51c4-4406-b930-c70e49e90853/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/dataSources/ca34cd5a-51c4-4406-b930-c70e49e90853/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/dataSources/ca34cd5a-51c4-4406-b930-c70e49e90853/storage_v2/_src_/schema/sys.zb4BAA.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/ISSUE_TEMPLATE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/LICENSE.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/products.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/aboutUs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/certificates.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/js/discountTypes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/changePassword.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/js/changePassword.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/collection.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/js/tables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/contact.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/globalFunction.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/js/globalFunction.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/homePage.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/js/salesCompany.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/js/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/message.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/product.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/js/products.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/js/referances.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/js/productCategories.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/vendor/jekyll/site/_includes/news_contents_mobile.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/vendor/jekyll/site/_includes/news_contents_mobile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/vendor/jekyll/site/_includes/primary-nav-items.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/vendor/jekyll/site/_includes/primary-nav-items.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/vendor/jekyll/site/_includes/top.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/vendor/jekyll/site/_includes/top.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/assets/vendor/prismjs/components.js" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/assets/vendor/prismjs/components.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/certificates.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/discountTypes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/changePassword.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/changePassword.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/collection.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/tables.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/contact.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/dashboard.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/docs/documentation.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/docs/documentation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/gulpfile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/homePage.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/salesCompany.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/maps.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/product.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/personelInfo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataManagement/referances.html" beforeDir="false" afterPath="$PROJECT_DIR$/dataManagement/productCategories.html" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/dataManagement" />
+  </component>
+  <component name="ProjectId" id="1hr8X8dYTIkq3iW9zEP6fxjQYns" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dataManagement" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni\dataManagement" />
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni" />
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni\css" />
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni\dataManagement\assets\css" />
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni\dataManagement\assets\js" />
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni\dataManagement\assets" />
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni\css" />
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni\js" />
+      <recent name="C:\Users\macbook\Desktop\Proje1\armoni\js\other" />
+    </key>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf4f7bbe-1eff-4dfd-937f-3a0edfa80ae7" name="Default Changelist" comment="" />
+      <created>1600757888079</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600757888079</updated>
+      <workItem from="1600757890436" duration="2190000" />
+      <workItem from="1600939702209" duration="218005000" />
+      <workItem from="1601668381855" duration="11028000" />
+      <workItem from="1601703738778" duration="16597000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601674696968">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="267" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.269.1280.760@0.0.1920.1040" timestamp="1601674696968" />
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1601379896136">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1920.1040/1920.269.1280.760@0.0.1920.1040" timestamp="1601379896136" />
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601672965330">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.269.1280.760@0.0.1920.1040" timestamp="1601672965330" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1601379785514">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1920.1040/1920.269.1280.760@0.0.1920.1040" timestamp="1601379785514" />
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1601712480546">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="92" y="92" width="1736" height="856" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1040/1920.269.1280.760@0.0.1920.1040" timestamp="1601712480546" />
+    <state x="351" y="254" width="1290" height="680" key="find.popup" timestamp="1601765072945">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="233" y="186" width="860" height="536" key="find.popup/0.0.1280.760@0.0.1280.760" timestamp="1601752661579" />
+    <state x="351" y="254" width="1290" height="680" key="find.popup/0.0.1920.1040/1920.269.1280.760@0.0.1920.1040" timestamp="1601765072945" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1601423197033">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040/1920.269.1280.760@0.0.1920.1040" timestamp="1601423197033" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601680407002">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.269.1280.760@0.0.1920.1040" timestamp="1601680407002" />
+  </component>
+</project>

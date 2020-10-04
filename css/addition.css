@@ -1,0 +1,380 @@
+@import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,400italic|Montserrat:400,700);
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: menu;
+    font-size: 100%;
+    vertical-align: baseline;
+}
+
+html {
+    line-height: 1;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+}
+
+q, blockquote {
+    quotes: none;
+}
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none;
+}
+
+a img {
+    border: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.boddy {
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+    font-family: "Droid Serif", serif;
+    background-image: url("../images/gallery-img1.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+img {
+    max-width: 100%;
+}
+
+.cf:before, .cf:after {
+    content: " ";
+    display: table;
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+
+.wrap {
+    width: 90%;
+    padding: 35px;
+    max-width: 960px;
+    margin: 0 auto;
+    border-radius: 4%;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    background-color: rgb(255 255 255 / 80%);
+}
+
+.projTitle {
+     font-family: "Montserrat", sans-serif;
+     font-weight: bold;
+     text-align: center;
+     font-size: 2em;
+     padding: 1em 0;
+     border-bottom: 1px solid #dadada;
+     letter-spacing: 3px;
+     text-transform: uppercase;
+ }
+.projTitle1 {
+    font-family: "Montserrat", sans-serif;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 0.5em 0;
+    border-bottom: 1px solid #dadada;
+    letter-spacing: 3px;
+}
+.projTitle span {
+    font-family: "Droid Serif", serif;
+    font-weight: normal;
+    font-style: italic;
+    text-transform: lowercase;
+    color: #777;
+}
+
+.heading {
+    padding: 1em 13px;
+    border-bottom: 1px solid #D0D0D0;
+}
+.heading h2 {
+    clear: both;
+    margin-top: 10px;
+    float: right;
+    font-size: x-large;
+    padding-right: 20px;
+    font-family: "Montserrat", sans-serif;
+}
+.heading a.continue:link, .heading a.continue:visited {
+    width: 100%;
+    display: grid;
+    margin-top: 1%;
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.5em;
+    padding: 2%;
+    color: #fff;
+    background: #82ca9c;
+    font-weight: 500;
+    border-radius: 100px;
+    border: ridge;
+    float: left;
+    text-align: center;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -ms-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+}
+.heading a.continue:after {
+    position: relative;
+    right: 0;
+    -webkit-transition: all 0.15s linear;
+    -moz-transition: all 0.15s linear;
+    -ms-transition: all 0.15s linear;
+    -o-transition: all 0.15s linear;
+    transition: all 0.15s linear;
+}
+.heading a.continue:hover, .heading a.continue:focus, .heading a.continue:active {
+    background: #f69679;
+}
+.heading a.continue:hover:after, .heading a.continue:focus:after, .heading a.continue:active:after {
+    right: -10px;
+}
+
+.tableHead {
+    display: table;
+    width: 100%;
+    font-family: "Montserrat", sans-serif;
+    font-size: .75em;
+}
+.tableHead li {
+    display: table-cell;
+    padding: 1em 0;
+    text-align: center;
+}
+.tableHead li.prodHeader {
+    text-align: left;
+}
+
+.cart .items {
+    display: block;
+    width: 100%;
+    vertical-align: middle;
+    padding: 10px;
+    border-bottom: 1px solid #c5c5c5;}
+
+.cart .items.even {
+    background: #fafafa;
+}
+.cart .items .infoWrap {
+    display: table;
+    width: 100%;
+}
+.cart .items .cartSection {
+    display: table-cell;
+    vertical-align: middle;
+}
+.cart .items .cartSection .itemNumber {
+    font-size: .75em;
+    color: #777;
+}
+.cart .items .cartSection h3 {
+    font-size: 1em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .025em;
+}
+.cart .items .cartSection p {
+    display: inline-block;
+    font-size: 1.05em;
+    color: #777777;
+    font-family: "Montserrat", sans-serif;
+}
+.cart .items .cartSection p .quantity {
+    font-weight: bold;
+    color: #333;
+}
+.cart .items .cartSection p.stockStatus {
+    color: #82CA9C;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.cart .items .cartSection p.stockStatus.out {
+    color: #F69679;
+}
+.cart .items .cartSection .itemImg {
+    width: 4em;
+    float: left;
+}
+.cart .items .cartSection.qtyWrap, .cart .items .cartSection.prodTotal {
+    text-align: center;
+}
+.cart .items .cartSection.qtyWrap p, .cart .items .cartSection.prodTotal p {
+    font-weight: bold;
+    font-size: 1.25em;
+}
+.cart .items .cartSection input.qty {
+    width: 2em;
+    text-align: center;
+    font-size: 1em;
+    padding: .25em;
+    margin: 1em .5em 0 0;
+}
+.cart .items .cartSection .itemImg {
+    width: 5em;
+    display: inline;
+    margin-right: 5%;
+    border-radius: 100%;
+    border: solid;
+}
+
+.special {
+    display: block;
+    font-family: "Montserrat", sans-serif;
+}
+.special .specialContent {
+    padding: 1em 1em 0;
+    display: block;
+    margin-top: .5em;
+    border-top: 1px solid #dadada;
+}
+.special .specialContent:before {
+    content: "\21b3";
+    font-size: 1.5em;
+    margin-right: 1em;
+    color: #6f6f6f;
+    font-family: helvetica, arial, sans-serif;
+}
+
+a.remove {
+    text-decoration: none;
+    font-family: "Montserrat", sans-serif;
+    color: black;
+    font-weight: bolder;
+    background: white;
+    padding: 0.4em;
+    font-size: 1em;
+    border: solid;
+    border-color: black;
+    display: inline-block;
+    border-radius: 100%;
+    line-height: 0.75;
+    -webkit-transition: all 0.25s linear;
+    -moz-transition: all 0.25s linear;
+    -ms-transition: all 0.25s linear;
+    -o-transition: all 0.25s linear;
+    transition: all 0.25s linear;
+}
+a.remove:hover {
+    background: orangered;
+}
+
+
+@media only screen and (max-width: 30em) {
+    .wrap {
+        width: 98%;
+        padding: 2% 0;
+    }
+
+    .projTitle {
+        font-size: 1.5em;
+        padding: 10% 5%;
+    }
+
+    .heading {
+        padding: 1em;
+        font-size: 90%;
+    }
+
+    .cart .items .cartSection {
+        width: 90%;
+        display: block;
+        float: left;
+    }
+    .cart .items .cartSection.qtyWrap {
+        width: 10%;
+        text-align: center;
+        padding: .5em 0;
+        float: right;
+    }
+    .cart .items .cartSection.qtyWrap:before {
+        content: "QTY";
+        display: block;
+        font-family: "Montserrat", sans-serif;
+        padding: .25em;
+        font-size: .75em;
+    }
+    .cart .items .cartSection.prodTotal, .cart .items .cartSection.removeWrap {
+        display: none;
+    }
+    .cart .items .cartSection .itemImg {
+        width: 25%;
+    }
+
+}
+
+
+
+
+:-webkit-full-screen {
+    background: white;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Firefox syntax */
+:-moz-full-screen {
+    background: white;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* IE/Edge syntax */
+:-ms-fullscreen {
+    background: white;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+/* Standard syntax */
+:fullscreen {
+    background: white;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
