@@ -79,15 +79,26 @@ function sessionControl() {
     else{
         if (post.power===100){
             power=power100;
-            document.getElementById("managerButton").style.display="";
+            if (document.getElementById("managerButton")!==null){
+
+                document.getElementById("managerButton").style.display="";
+            }
         }
         else if (post.power===101){
             power=power101;
-            document.getElementById("managerButton").style.display="none";
+            if (document.getElementById("managerButton")!==null){
+
+                document.getElementById("managerButton").style.display="none";
+
+            }
         }
         else if (post.power===102){
             power=power102;
-            document.getElementById("managerButton").style.display="none";
+            if (document.getElementById("managerButton")!==null){
+
+                document.getElementById("managerButton").style.display="none";
+
+            }
         }
         return [post.session,power];
     }

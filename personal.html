@@ -1,0 +1,106 @@
+
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Personel Verileri</title>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+    <link rel='stylesheet' href='css/accounting.css'>
+
+
+
+</head>
+
+<body>
+<div class="container-fluid mainTitleIncome">PERSONEL VERİLERİ</div>
+
+<div class="wrapper">
+
+    <label>
+        <input type="text" class="dateselect" id="startDate" required="required"/>
+        <span>Başlangıç Tarihi</span>
+
+    </label>
+    <label>
+        <input type="text" class="dateselect" id="finishDate" required="required"/>
+        <span>Bitiş Tarihi</span>
+    </label>
+    <label>
+        <button type="button" onclick="setPersonalValues();">Görüntüle</button>
+    </label><br/>
+
+    <p>
+        <h4 style="color: white; font-size: 16px;"><p>* Gün sonu almak isterseniz Bitiş Tarihini boş bırakın. Başlangıç tarihine bulunduğunuz günden bir önceki günün tarihini girin.</p>
+    <p>* İki tarih arasında toplam verileri öğrenmek isterseniz hangi tarihler arasında olacağını girin.</p></h4>
+
+    </p>
+
+</div>
+<div class="wrapper1" ng-app="sortTable" ng-controller="mainCtrl">
+    <div  id="generic_price_table">
+        <section>
+            <div class="container valueIncomeContainer">
+                <div class="row">
+                    <button style="display:none;" ng-click="loadPersonalData()" id="personalDetailButton">Göster</button>
+                    <div id="personalValues">
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+    <div style="display: none" class="col-md-6 containerAdditionTable" id="containerOutcomeTable">
+        <div ng-app="sortTable" ng-controller="mainCtrl" >
+            <h1>Veriler</h1>
+            <div class="filter-table">
+                <input type="text" placeholder="Anahtar kelimeyi ara..." ng-model="searchPerson"/>
+            </div>
+            <table class="additionTable">
+                <thead>
+                <tr>
+                    <th>Tarih</th>
+                    <th>Ödeme</th>
+                    <th>Türü</th>
+                    <th>Personel Adı</th>
+                    <th>Açıklama</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in datas | filter: searchPerson">
+                    <td>{{ x.date }}</td>
+                    <td>{{ x.price }}</td>
+                    <td>{{ x.type }}</td>
+                    <td>{{ x.personelName }}</td>
+                    <td>{{ x.comment }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!--
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
+-->
+<script src="js/globalFunction.js"></script>
+<script src="js/main.js"></script>
+<script src="js/accounting.js"></script>
+<script src='-config.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js'></script>
+<script src="dataManagement/assets/js/datePicker.js"></script>
+<script>
+    datepicker();
+</script>
+
+
+</body>
+
+</html>
+

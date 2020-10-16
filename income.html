@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Muhasebe Yönetimi</title>
+    <title>Gelir Yönetimi</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/accounting.css'>
@@ -15,9 +15,9 @@
 </head>
 
 <body>
+<div class="container-fluid mainTitleIncome">GELİR YÖNETİMİ</div>
 
 <div class="wrapper">
-
 
     <label>
         <input type="text" class="dateselect" id="startDate" required="required"/>
@@ -34,117 +34,25 @@
     </label><br/>
 
     <p>
-    <h4 style="color: white">Açıklama:<p>* Gün sonu almak isterseniz Bitiş Tarihini boş bırakın. Başlangıç tarihine bulunduğunuz günden bir önceki günün tarihini girin.</p>
+    <h4 style="color: white; font-size: 16px;"><p>* Gün sonu almak isterseniz Bitiş Tarihini boş bırakın. Başlangıç tarihine bulunduğunuz günden bir önceki günün tarihini girin.</p>
     <p>* İki tarih arasında toplam verileri öğrenmek isterseniz hangi tarihler arasında olacağını girin.</p></h4>
 
     </p>
 
 </div>
-<div class="wrapper1">
-    <div id="generic_price_table">
+<div class="wrapper1" ng-app="sortTable" ng-controller="mainCtrl">
+    <div  id="generic_price_table">
         <section>
-            <div class="container">
-                <div class="row" style="width: 80%;">
-                    <div class="col-md-3 valueIncome">
+            <div class="container valueIncomeContainer">
+                <div class="row">
+                    <div ng-click="loadAllAddition()" class="col-md-12 valueIncome">
                         <div class="generic_content clearfix">
                             <div class="generic_head_price clearfix">
                                 <div class="generic_head_content clearfix">
 
-                                    <div class="head_bg"></div>
+                                    <div class="head_bg" style="border-color: #67de5f rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #67de5f;"></div>
                                     <div class="head">
-                                        <span>Toplam Kazanç</span>
-                                    </div>
-
-                                </div>
-
-                                <div class="generic_price_tag clearfix">
-                                <span class="price">
-                                    <span class="currency" id="dailyIncome"></span>
-                                </span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-3 valueIncome">
-                        <div class="generic_content clearfix">
-                            <div class="generic_head_price clearfix">
-                                <div class="generic_head_content clearfix">
-
-                                    <div class="head_bg"></div>
-                                    <div class="head">
-                                        <span>Nakit Kazanç</span>
-                                    </div>
-
-                                </div>
-
-                                <div class="generic_price_tag clearfix">
-                                <span class="price">
-                                    <span class="currency" id="cashIncome"></span>
-                                </span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-3 valueIncome">
-                        <div class="generic_content clearfix">
-                            <div class="generic_head_price clearfix">
-                                <div class="generic_head_content clearfix">
-
-                                    <div class="head_bg"></div>
-                                    <div class="head">
-                                        <span>Kredi Kartı Kazanç</span>
-                                    </div>
-
-                                </div>
-
-                                <div class="generic_price_tag clearfix">
-                                <span class="price">
-                                    <span class="currency" id="creditCardIncome"></span>
-                                </span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-3 valueIncome">
-                        <div class="generic_content clearfix">
-                            <div class="generic_head_price clearfix">
-                                <div class="generic_head_content clearfix">
-
-                                    <div class="head_bg"></div>
-                                    <div class="head">
-                                        <span>Toplam Kasa Çıkışı</span>
-                                    </div>
-
-                                </div>
-
-                                <div class="generic_price_tag clearfix">
-                                <span class="price">
-                                    <span class="currency" id="totalExpense"></span>
-                                </span>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-                    <div class="col-md-3 valueIncome">
-                        <div class="generic_content clearfix">
-                            <div class="generic_head_price clearfix">
-                                <div class="generic_head_content clearfix">
-
-                                    <div class="head_bg"></div>
-                                    <div class="head">
-                                        <span>Kasa Gün Sonu Nakit</span>
+                                        <span>Gün Sonu (Kasa)</span>
                                     </div>
 
                                 </div>
@@ -160,7 +68,100 @@
                         </div>
 
                     </div>
-                    <div class="col-md-3 valueIncome">
+                    <div ng-click="loadCashAddition()" class="col-md-12 valueIncome">
+                        <div class="generic_content clearfix">
+                            <div class="generic_head_price clearfix">
+                                <div class="generic_head_content clearfix">
+
+                                    <div class="head_bg" style="border-color: #97c2d6 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #97c2d6;"></div>
+                                    <div class="head">
+                                        <span>Nakit Gelir</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="generic_price_tag clearfix">
+                                    <span class="price">
+                                    <span class="currency" id="cashIncome"></span>
+                                </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div ng-click="loadCreditAddition()" class="col-md-12 valueIncome">
+                        <div class="generic_content clearfix">
+                            <div class="generic_head_price clearfix">
+                                <div class="generic_head_content clearfix">
+
+                                    <div class="head_bg" style="border-color: #f3ac55 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #f3ac55;"></div>
+                                    <div class="head">
+                                        <span>Kredi Kartı Gelir</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="generic_price_tag clearfix">
+                                    <span class="price">
+                                    <span class="currency" id="creditCardIncome"></span>
+                                </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div ng-click="loadOutcomeAddition()" class="col-md-12 valueIncome">
+                        <div class="generic_content clearfix">
+                            <div class="generic_head_price clearfix">
+                                <div class="generic_head_content clearfix">
+
+                                    <div class="head_bg"></div>
+                                    <div class="head">
+                                        <span>Toplam Gider</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="generic_price_tag clearfix">
+                                <span class="price">
+                                    <span class="currency" id="totalExpense"></span>
+                                </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-12">
+                        <div class="generic_content clearfix">
+                            <div class="generic_head_price clearfix">
+                                <div class="generic_head_content clearfix">
+
+                                    <div class="head_bg"></div>
+                                    <div class="head">
+                                        <span>Toplam Gelir</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="generic_price_tag clearfix">
+                                    <span class="price">
+                                    <span class="currency" id="dailyIncome"></span>
+                                </span>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="col-md-12">
                         <div class="generic_content clearfix">
                             <div class="generic_head_price clearfix">
                                 <div class="generic_head_content clearfix">
@@ -184,26 +185,85 @@
 
                     </div>
 
-
-
                 </div>
 
             </div>
         </section>
 
     </div>
+    <div style="display: none" class="col-md-6 containerAdditionTable" id="containerAdditionTable">
+        <div ng-app="sortTable" ng-controller="mainCtrl" >
+            <h1>Veriler</h1>
+            <div class="filter-table">
+                <input type="text" placeholder="Anahtar kelimeyi ara..." ng-model="searchPerson"/>
+            </div>
+            <table class="additionTable">
+                <thead>
+                <tr>
+                    <th>Tarih</th>
+                    <th>Ödeme</th>
+                    <th>Masa</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in datas | filter: searchPerson">
+                    <td>{{ x.additionFinishDate }}</td>
+                    <td>{{ x.payment }}</td>
+                    <td>{{ x.tableName }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div style="display: none" class="col-md-6 containerAdditionTable" id="containerOutcomeTable">
+        <div ng-app="sortTable" ng-controller="mainCtrl" >
+            <h1>Gelir Detayları</h1>
+            <div class="filter-table">
+                <input type="text" placeholder="Anahtar kelimeyi ara..." ng-model="searchPerson"/>
+            </div>
+            <table class="additionTable">
+                <thead>
+                <tr>
+                    <th>Tarih</th>
+                    <th>Ödeme</th>
+                    <th>Türü</th>
+                    <th>Personel Adı</th>
+                    <th>Açıklama</th>
+                    <!--                    <th ng-click="main.changeSortType(name)">Tarih
+                                            <span ng-show="main.isSortType(name) " ng-class="{down : main.isOrderedReverse(), up: !main.isOrderedReverse()}"></span>
+                                        </th>
+                                        <th ng-click="main.changeSortType(surname)">Ödeme
+                                            <span ng-show="main.isSortType(surname) " ng-class="{down : main.isOrderedReverse(), up: !main.isOrderedReverse()}"></span></th>
+                                        <th ng-click="main.changeSortType(age)">Masa
+                                            <span ng-show="main.isSortType(age) " ng-class="{down : main.isOrderedReverse(), up: !main.isOrderedReverse()}"></span></th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in datas | filter: searchPerson">
+                    <td>{{ x.date }}</td>
+                    <td>{{ x.price }}</td>
+                    <td>{{ x.type }}</td>
+                    <td>{{ x.personelName }}</td>
+                    <td>{{ x.comment }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<!--
+<script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
+-->
 <script src="js/globalFunction.js"></script>
 <script src="js/main.js"></script>
 <script src="js/accounting.js"></script>
-<script src='config.js'></script>
+<script src='-config.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js'></script>
 <script src="dataManagement/assets/js/datePicker.js"></script>
-<script id="rendered-js" >
-    datepickerTr();
-</script>
 <script>
     datepicker();
 </script>

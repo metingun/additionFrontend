@@ -114,12 +114,27 @@ function modalLoad() {
 function personelHtmlTemplate(responseData) {
     return '<option value="'+responseData.id+'">'+responseData.name+'</option>';
 }
+
+function outputHtmlTemplate1() {
+    return '<option value="0">Personel Ödemeleri</option>';
+}
+
+function outputHtmlTemplate(responseData) {
+    return '<option value="'+responseData.id+'">'+responseData.outcomeType+'</option>';
+}
+
 function outputModalLoad() {
     const response = getModel(urlBackend+"personel/getAll").data;
-
+    const response1 = getModel(urlBackend+"outcomeType/getAll").data;
+    document.getElementById("outputType").innerHTML = "";
     document.getElementById("personals").innerHTML = "";
+
+    document.getElementById("outputType").innerHTML += outputHtmlTemplate1();
     for (let i = 0; i < response.length; i++) {
         document.getElementById("personals").innerHTML += personelHtmlTemplate(response[i]);
+    }
+    for (let i = 0; i < response1.length; i++) {
+        document.getElementById("outputType").innerHTML += outputHtmlTemplate(response1[i]);
     }
 }
 
@@ -128,11 +143,12 @@ function sendMoneyOutput() {
     var comment=document.getElementById("commentX").value;
     var price=document.getElementById("priceX").value;
     var personelName=document.getElementById("personals").innerText;
-    if (outputType==="0"){
+    if (outputType!=="0"){
         personelName="";
     }
 
     var requestData={
+        "typeId": outputType,
         "personelName":personelName,
         "comment":comment,
         "price":parseFloat(price)
