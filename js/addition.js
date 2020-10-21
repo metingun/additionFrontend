@@ -23,6 +23,8 @@ function printerTotalHtmlTemplate(totalPrice) {
 function discountHtmlTemplate(responseData) {
     return '<li class="dissc" id="'+responseData.discountName+'" data-value="'+responseData.discountRate+'">'+responseData.discountName+'</li>';
 }
+
+var totalPaymentConstant=0;
 function additionLoad() {
     var url=new URL(window.location.href);
     var tableName=url.searchParams.get("tableName");
@@ -38,6 +40,7 @@ function additionLoad() {
             document.getElementById("printView").innerHTML+=printerHtmlTemplate(response[i]);
             totalPayment+=response[i].totalPrice;
         }
+        totalPaymentConstant=totalPayment;
         document.getElementById("printView").innerHTML+=printerTotalHtmlTemplate(totalPayment);
 
         document.getElementById("totalPayment").innerHTML=totalPayment.toFixed(2);
@@ -54,7 +57,7 @@ function applyDiscount() {
     var a=document.getElementsByClassName('chosen-value')[0].value;
     var discountRate=document.getElementById(a);
     var disc=discountRate.getAttribute('data-value');
-    document.getElementById("totalPayment").innerHTML=""+(parseFloat(document.getElementById("totalPayment").innerHTML)*(1-parseFloat(disc))).toFixed(2);
+    document.getElementById("totalPayment").innerHTML=""+(totalPaymentConstant*(1-parseFloat(disc))).toFixed(2);
 }
 
 function payBill(cash,credit) {

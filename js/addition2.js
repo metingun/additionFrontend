@@ -4,7 +4,7 @@
     $(document).ready(function () {
         const inputField = document.querySelector('.chosen-value');
         const dropdown = document.querySelector('.value-list');
-        const dropdownArray = [...document.querySelectorAll('li')];
+        const dropdownArray = [...document.querySelectorAll('.dissc')];
         let valueArray = [];
         dropdownArray.forEach(item => {
             valueArray.push(item.textContent);

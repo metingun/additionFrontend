@@ -1,2 +1,2 @@
-var urlBackend="http://192.168.1.36:8080/restful/";
-var urlFrontend="http://192.168.1.36:8088/";
+var urlBackend="http://localhost:8080/restful/";
+var urlFrontend="http://localhost:8088/";

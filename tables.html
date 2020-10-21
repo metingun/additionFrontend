@@ -31,7 +31,7 @@
                 <img src="images/exit.svg">
             </button>
 
-            <button class="btn btn-primary navbar-toggle" data-target='#outputModal' data-toggle='modal'
+            <button class="btn btn-primary navbar-toggle" id="outputButton" data-target='#outputModal' data-toggle='modal'
                     onclick="outputModalLoad();">
                 Kasa Gideri Gir
             </button>
@@ -107,7 +107,7 @@
                 <button class="btn btn-default" data-dismiss="modal"
                         style="color: white;background-color: red;font-weight: 700;"
                         type="button">
-                    Close
+                    Kapat
                 </button>
             </div>
         </div>
@@ -133,7 +133,32 @@
                 <button class="btn btn-default" data-dismiss="modal"
                         style="color: white;background-color: red;font-weight: 700;"
                         type="button">
-                    Close
+                    Kapat
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="tableTransferModal" role="dialog">
+    <div class="modal-dialog modal-transfer" style="position: relative;transform: translate(50%,5%);">
+        <div class="modal-content">
+            <div class="modal-header modalHeader">
+                Masa Aktarma -><span id="tableTrModal"></span>
+            </div>
+
+            <div class="modal-body"
+                 style="height: 400px;overflow: auto;background-image: url('images/gallery-img1.jpg');    background-attachment: fixed;background-repeat:no-repeat;background-size: cover;">
+                <select size="3" id="tableTransferSelect">
+
+                </select>
+
+            </div>
+            <div class="modal-footer">
+                <button onclick="tableTransfer();" class="btn btn-default" data-dismiss="modal"
+                        style="color: white;background-color: red;font-weight: 700;"
+                        type="button">
+                    Tamamla
                 </button>
             </div>
         </div>
@@ -180,7 +205,7 @@
                 <button class="btn btn-default" data-dismiss="modal"
                         style="color: white;background-color: red;font-weight: 700;"
                         type="button">
-                    Close
+                    Kapat
                 </button>
             </div>
         </div>

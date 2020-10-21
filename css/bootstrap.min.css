@@ -4625,7 +4625,7 @@ select[multiple].input-group-sm > .form-control, select[multiple].input-group-sm
 .navbar-toggle2 {
     position: relative;
     font-weight: 500;
-    width: 10%;
+    width: 16%;
     padding: 9px 10px;
     margin-top: 15px;
     margin-right: 15px;
@@ -6411,6 +6411,9 @@ button.close {
 @media (min-width: 500px) {
     .modal-lg {
         width: 80%;
+    }
+    .modal-transfer {
+        width: 50%;
     }
 }
 

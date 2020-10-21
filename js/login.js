@@ -14,12 +14,20 @@ function login() {
         document.cookie = "username="+post.userName+"; path=/; max-age="+60*60*60*2+";";
         document.cookie = "password="+post.password+"; path=/; max-age="+60*60*60*2+";";
         switch (post.power) {
+            case 100:
+                location.href = urlFrontend+"statistics.html";
+                break;
+
+            case 101:
+                location.href = urlFrontend+"tables.html";
+                break;
+
             case 102:
                 location.href = urlFrontend+"chef.html";
                 break;
 
             default:
-                location.href = urlFrontend+"tables.html";
+                location.href = urlFrontend+"index.html";
                 break;
         }
 

@@ -37,7 +37,18 @@
     background-color: yellow;
     border-color: yellow;
 }
-
+#tableTransferSelect{
+    width: 70%;
+    height: 330px;
+    font-size: larger;
+    font-weight: 600;
+    border: solid;
+    margin: 0 auto;
+    padding-left: 13px;
+    border-radius: 10px;
+    display: block;
+    opacity: 84%;
+}
 .tables {
     font-size: 201%;
     color: floralwhite;
@@ -60,10 +71,11 @@
 }
 
 .salesButton {
-    padding: 5%;
+    border: outset;
+    padding: 3%;
     margin-top: 2%;
-    border-radius: 14%;
-    font-size: 18px;
+    border-radius: 8%;
+    font-size: 16px;
     font-weight: 500;
 }
 
@@ -210,6 +222,8 @@
     width:23%;
     left: 25px;
     border-bottom: 1px solid black;
+    height: 565px;
+    overflow-y: auto;
 }
 
 .tabs-vertical.tabs-left > .nav-tabs > li {

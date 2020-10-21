@@ -31,16 +31,16 @@ function chefLoadCompletedSalesHtmlTemplate(responseData) {
         '</div>' +
         '</div>';
 }
-function chefLoad(selectValue) {
+function chefLoad(selectValue,categoryType) {
     document.getElementById("rightContent").innerHTML = "";
     if (selectValue === "1") {
-        const response = getModel(urlBackend+"sales/getSalesByCompleteOrderAndOrderStatusAndCancelSales/completeOrder=0/orderStatus=1/cancelSales=0").data;
+        const response = getModel(urlBackend+"sales/getSalesByCompleteOrderAndOrderStatusAndCancelSales/completeOrder=0/orderStatus=1/cancelSales=0/categoryType="+categoryType).data;
         for (let i = 0; i < response.length; i++) {
             document.getElementById("rightContent").innerHTML += chefLoadHtmlTemplate(response[i]);
         }
     }
     else {
-        const responseForCompleted=getModel(urlBackend+"sales/getSalesAllStatusZeroOneDay").data;
+        const responseForCompleted=getModel(urlBackend+"sales/getSalesByCompleteOrderAndOrderStatusAndCancelSales/completeOrder=1/orderStatus=1/cancelSales=0/categoryType="+categoryType).data;
         for (let i = 0; i < responseForCompleted.length; i++) {
             document.getElementById("rightContent").innerHTML += chefLoadCompletedSalesHtmlTemplate(responseForCompleted[i]);
         }
@@ -63,7 +63,7 @@ function removeRow(orderId) {
 /*
     setAttributeById("headery","data-value","1");
 */
-    location.href=urlFrontend+"chef.html";
+    location.reload();
 }
 function removeRowForCancelSale(orderId) {
     getModel(urlBackend+"sales/cancelSaleCheck/salesId="+orderId).data;

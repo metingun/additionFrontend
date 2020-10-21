@@ -21,6 +21,8 @@
 <button class="fullScreen" style="width: 2.5%;" onclick="location.reload();">
     <img src="images/refresh.svg">
 </button>
+<button class="btn btn-success" style="margin-left: 12px;height: 30px;" onclick="printPrinter();">Adisyonu Yazdır</button>
+
 <div class="wrap cf">
     <h1 class="projTitle">SİPARİŞ BİLGİLERİ</h1>
     <h3 class="projTitle1" id="projTitle1"></h3>
@@ -61,15 +63,18 @@
     </div>
 
 </div>
-<div class="modal" id="cancelSaleModal">
+<div class="modal" id="cancelSaleModal" style="z-index: 10;">
     <div class="modal-content">
         <div class="modal-header">
             <span class="close"
                   onclick="document.getElementById('cancelSaleModal').style.display = 'none';">&times;</span>
-            <h2>Sipariş İptal Nedeni</h2>
+            <h2>Sipariş İptali</h2>
         </div>
         <div class="modal-body">
-            <input id="commentInput" placeholder="Buraya yazınız..." type="text">
+<!--
+            <input id="qtyInput" placeholder="İptal edilecek adet" type="number">
+-->
+            <input id="commentInput" placeholder="Nedenini Buraya yazınız..." type="text">
         </div>
         <div class="modal-footer">
             <button data-value="" id="cancelSaleButton" onclick="removeRow()">Siparişi İptal Et</button>
@@ -79,6 +84,9 @@
 </div>
 
 
+<!--
+<script src='js/other/jquery-2.1.3.min.js'></script>
+-->
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
 
 <script src="js/globalFunction.js"></script>

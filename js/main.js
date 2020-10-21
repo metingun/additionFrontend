@@ -5,7 +5,7 @@ function pageLoad(pageNumber) {
             break;
 
         case "2":
-            chefLoad("1");
+            chefLoad("1",1);
             loadCancelSale();
             break;
 
@@ -14,6 +14,15 @@ function pageLoad(pageNumber) {
             tablesLoad(document.getElementsByClassName("companyButtons").item(0).getAttribute('id'));
             break;
 
+        case "4":
+            chefLoad("1",2);
+            loadCancelSale();
+            break;
+
+        case "5":
+            chefLoad("1",3);
+            loadCancelSale();
+            break;
     }
 }
 

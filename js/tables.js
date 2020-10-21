@@ -5,7 +5,39 @@ function htmlTemplate(responseData) {
         'data-target="#menuModal" data-toggle="modal"' +
         '>Sipariş Gir' +
         '</button>' +
+        '<button onclick="transferModalLoad(' + responseData.id + ')" class="btn btn-dark salesButton" ' +
+        'data-target="#tableTransferModal" data-toggle="modal"' +
+        '>Masayı Aktar' +
+        '</button>' +
         '</li>';
+}
+
+function tableTransfer() {
+    var fromTable=document.getElementById("tableTrModal").innerText;
+    var toTable=document.getElementById("tableTransferSelect").value;
+
+    var request={
+        "fromTable": fromTable,
+        "toTable": toTable
+    };
+
+    postModel(urlBackend+"tables/tableTransfer",request);
+    alert("Masa başarıyla aktarıldı !!");
+    location.reload();
+}
+
+function tablesHtmlTemplate(responseData) {
+    return '<option value="'+responseData.tableName+'">'+responseData.tableName+'</option>';
+}
+
+function transferModalLoad(tableId) {
+    document.getElementById("tableTransferSelect").innerHTML = "";
+    const tableName = getModel(urlBackend+"tables/getTableNameById/id=" + tableId).data;
+    setValueById("tableTrModal", tableName);
+    const response = getModel(urlBackend+"tables/getAll").data;
+    for (let i = 0; i < response.length; i++) {
+        document.getElementById("tableTransferSelect").innerHTML += tablesHtmlTemplate(response[i]);
+    }
 }
 
 function salesLoadHtmlTemplate(responseData) {
@@ -15,6 +47,10 @@ function salesLoadHtmlTemplate(responseData) {
         '<button onclick="menuLoad(' + responseData.menuType + ',' + responseData.id + ')" class="' + tableStatus(responseData) + ' salesButton" ' +
         'data-target="#menuModal" data-toggle="modal"' +
         '>Sipariş Gir' +
+        '</button>' +
+        '<button onclick="transferModalLoad(' + responseData.id + ')" class="btn btn-dark salesButton" ' +
+        'data-target="#tableTransferModal" data-toggle="modal"' +
+        '>Masayı Aktar' +
         '</button>' +
         '</li>';
 }
@@ -104,7 +140,7 @@ function modalCompleteHtmlTemplate(responseData) {
 }
 
 function modalLoad() {
-    const response = getModel(urlBackend+"sales/getSalesByCompleteOrderAndOrderStatusAndCancelSales/completeOrder=1/orderStatus=1/cancelSales=0").data;
+    const response = getModel(urlBackend+"sales/getSalesByCompleteOrderAndOrderStatusAndCancelSales/completeOrder=1/orderStatus=1/cancelSales=0/categoryType=0").data;
 
     document.getElementById("cartWrap").innerHTML = "";
     for (let i = 0; i < response.length; i++) {

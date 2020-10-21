@@ -59,8 +59,8 @@ function setAttributeById(id,attributeName,attribute) {
 function getValueById(id) {
     return document.getElementById(id).value;
 }
-var power100=["1","2","3","4"];
-var power101=["1","3"];
+var power100=["1","2","3","4","5"];
+var power101=["1","3","4","5"];
 var power102=["2"];
 
 function sessionControl() {
@@ -80,24 +80,20 @@ function sessionControl() {
         if (post.power===100){
             power=power100;
             if (document.getElementById("managerButton")!==null){
-
                 document.getElementById("managerButton").style.display="";
             }
         }
         else if (post.power===101){
             power=power101;
             if (document.getElementById("managerButton")!==null){
-
                 document.getElementById("managerButton").style.display="none";
-
             }
+
         }
         else if (post.power===102){
             power=power102;
             if (document.getElementById("managerButton")!==null){
-
                 document.getElementById("managerButton").style.display="none";
-
             }
         }
         return [post.session,power];
