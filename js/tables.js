@@ -22,8 +22,10 @@ function tableTransfer() {
     };
 
     postModel(urlBackend+"tables/tableTransfer",request);
-    alert("Masa başarıyla aktarıldı !!");
-    location.reload();
+    swal("Başarılı!", "Masa başarıyla aktarıldı !!", "success")
+        .then(()=>{
+            location.reload();
+        });
 }
 
 function tablesHtmlTemplate(responseData) {
@@ -191,8 +193,11 @@ function sendMoneyOutput() {
     };
 
     postModel(urlBackend+"cashOutflow/save",requestData);
-    alert("Kasa çıkışı yapıldı.");
-    location.href=urlFrontend+"tables.html";
+    swal("Başarılı!", "Kasa Çıkışı Yapıldı", "success")
+        .then(() => {
+            location.href=urlFrontend+"tables.html";
+        });
+
 }
 
 function menuLoad2(menuType) {

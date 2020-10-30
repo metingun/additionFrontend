@@ -1,3 +1,21 @@
+function setSaleByRayonValues() {
+    var startDate=document.getElementById("startDate").value+" 08:00";
+    var finishDate=document.getElementById("finishDate").value+" 08:00";
+    const response=getModel(urlBackend+"sales/getSaleByRayon/startDate="+startDate+"/finishDate="+finishDate).data;
+
+    if (response!==null){
+        document.getElementById("kitchen").innerText=response.kitchen;
+        document.getElementById("bar").innerText=response.bar;
+        document.getElementById("nargile").innerText=response.nargile;
+        document.getElementById("kitchenQty").innerText=response.kitchenQty;
+        document.getElementById("barQty").innerText=response.barQty;
+        document.getElementById("nargileQty").innerText=response.nargileQty;
+    }
+    else{
+        swal("Hata!", "Hata oluştu. Tarih değerlerini kontrol ediniz.", "warning");
+    }
+}
+
 function setDailyIncomeValues() {
     var startDate=document.getElementById("startDate").value+" 08:00";
     var finishDate=document.getElementById("finishDate").value+" 08:00";
@@ -31,7 +49,7 @@ function setDailyOutcomeValues() {
         }
     }
     else{
-        alert("Hata oluştu. Tarih değerlerini kontrol ediniz.")
+        swal("Hata!", "Hata oluştu. Tarih değerlerini kontrol ediniz.", "warning");
     }
 }
 
@@ -102,7 +120,31 @@ function personalValuesHtmlTemplate(responseData) {
         '</div>';
 }
 
+function editAdditionComplete() {
+    var total=parseFloat(document.getElementById('cashEdit').value)+parseFloat(document.getElementById('creditEdit').value);
+    if (total===parseFloat(document.getElementById('totalPmt').innerText)){
+        var additionId=document.getElementById('editAdditionButton').getAttribute('data-value').slice(9);
+        document.getElementById('editAdditionModal').style.display = 'none';
+
+        var requestData={
+            "id":additionId,
+            "cashPayment":document.getElementById("cashEdit").value,
+            "creditCardPayment":document.getElementById("creditEdit").value
+        };
+        postModel(urlBackend+"addition/update",requestData);
+        document.getElementById('vallInc').click();
+    }
+    else {
+        swal("Hata!", "Toplam Ödeme, Eskisiyle Aynı Değil !!", "warning");
+    }
+}
+
+
 (function () {
+/*
+    datepickerTr();
+*/
+
     var sortTable = angular.module('sortTable', []);
     sortTable.controller('mainCtrl', function($scope,$http) {
 
@@ -151,11 +193,35 @@ function personalValuesHtmlTemplate(responseData) {
             $http.get(urlBackend+"cashOutflow/getCashflowByDateAndPersonelId/startDate="+startDate+"/finishDate="+finishDate+"/personelId="+userId)
                 .then(function (response) {$scope.datas = response.data.data;});
             document.getElementById("containerOutcomeTable").style.display="";
-        }
-    });
+        };
+        $scope.loadSaleListByRayon=function (categoryType) {
+            var startDate=document.getElementById("startDate").value+" 08:00";
+            var finishDate=document.getElementById("finishDate").value+" 08:00";
+            $http.get(urlBackend+"sales/getSaleListByRayon/startDate="+startDate+"/finishDate="+finishDate+"/categoryType="+categoryType)
+                .then(function (response) {$scope.datas = response.data.data;});
+            document.getElementById("containerAdditionTable").style.display="";
+        };
+        $scope.loadFavouriteProductList=function (sortType) {
+            $http.get(urlBackend+"sales/favouriteProductsList/sortType="+sortType)
+                .then(function (response) {$scope.datas = response.data.data;});
+            document.getElementById("containerAdditionTable").style.display="";
+        };
+        $scope.loadEditAdditionModal=function (id) {
+            $http.get(urlBackend+"addition/getAdditionById/id="+id)
+                .then(function (response) {
+                    var resp = response.data.data;
+                    setValueById("pmtDate",resp.additionFinishDate);
+                    setValueById("tableNameEdit",resp.tableName);
+                    setValueById("cashPmt",resp.cashPayment);
+                    setValueById("creditPmt",resp.creditCardPayment);
+                    setValueById("totalPmt",resp.discountedPayment);
+                });
 
-/*
-    datepickerTr();
-*/
+            document.getElementById("editAdditionModal").style.display = "block";
+            document.getElementById('editAdditionButton').setAttribute('data-value','additionx'+id);
+
+        };
+
+    });
 
 })();

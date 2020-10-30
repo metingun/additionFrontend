@@ -62,38 +62,68 @@
                 <thead>
                 <tr>
                     <th>Tarih</th>
-                    <th>Ödeme</th>
+                    <th>Nakit</th>
+                    <th>Kredi Kartı</th>
+                    <th>Toplam</th>
                     <th>Masa</th>
+                    <th>Düzenle</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="x in datas | filter: searchPerson">
                     <td>{{ x.additionFinishDate }}</td>
-                    <td>{{ x.payment }}</td>
+                    <td>{{ x.cashPayment }}</td>
+                    <td>{{ x.creditCardPayment }}</td>
+                    <td>{{ x.discountedPayment }}</td>
                     <td>{{ x.tableName }}</td>
+                    <td><button type="button" ng-click="loadEditAdditionModal(x.id)">Düzenle</button></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<div class="modal" id="editAdditionModal" style="z-index: 10;width: 50%; transform: translate(50%,10%);">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close"
+                  onclick="document.getElementById('editAdditionModal').style.display = 'none';">&times;</span>
+            <h2>Adisyonu Düzenle</h2>
+        </div>
+        <div class="modal-body">
+            <b>Ödeme Tarihi:&nbsp;</b><h4 id="pmtDate"></h4><br/>
+            <b>Masa Adı:&nbsp;</b><h4 id="tableNameEdit"></h4><br/>
+            <b>Nakit Ödeme:&nbsp;</b><h4 style="color: red" id="cashPmt"></h4><br/>
+            <b>Kredi Kartı Ödeme:&nbsp;</b><h4 style="color: red" id="creditPmt"></h4><br/>
+            <b>Toplam Ödeme:&nbsp;</b><h4 id="totalPmt"></h4><br/>
+            <input id="cashEdit" placeholder="Yeni Nakit Ödeme" onchange="setValueById('newTotalPmt',parseFloat(document.getElementById('cashEdit').value)+parseFloat(document.getElementById('creditEdit').value))" type="number"><br/><p></p>
+            <input id="creditEdit" placeholder="Yeni Kredi Kartı Ödeme" onchange="setValueById('newTotalPmt',parseFloat(document.getElementById('cashEdit').value)+parseFloat(document.getElementById('creditEdit').value))" type="number"><br/><p></p>
+            <b>Yeni Toplam:&nbsp;</b><h4 id="newTotalPmt" style="color: red"></h4><br/>
 
+        </div>
+        <div class="modal-footer">
+            <button data-value="" id="editAdditionButton" onclick="editAdditionComplete()">Tamamla</button>
+        </div>
+    </div>
+
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <!--
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
 -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js'></script>
-<!--
-<script src="js/other/angular-1.6.9.min.js"></script>
-<script src='js/other/bootstrap-datepicker-1.7.1.min.js'></script>
--->
-<script src='js/other/jquery-3.2.1.min.js'></script>
+<!--<script src="js/other/bootstrap-datepicker-1.7.1.min.js"></script>
+<script src="js/other/jquery-3.2.1.min.js"></script>
+<script src="js/other/angular-1.6.9.min.js"></script>-->
 <script src="js/globalFunction.js"></script>
 <script src="js/main.js"></script>
 <script src="js/accounting.js"></script>
 <script src='-config.js'></script>
 <script src="dataManagement/assets/js/datePicker.js"></script>
-<script>
+<script id="rendered-js">
     datepicker();
 </script>
 

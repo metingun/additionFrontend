@@ -70,9 +70,10 @@ function payBill(cash,credit) {
 
     postModel(urlBackend+"addition/payBill",requestData);
     printPrinter();
-    alert("Ödeme başarıyla gerçekleşti !!");
-    location.href=urlFrontend+"tables.html"
-
+    swal("Başarılı!", "Ödeme başarıyla gerçekleşti !!", "success")
+        .then(()=>{
+            location.href=urlFrontend+"tables.html"
+        });
 }
 
 function checkPay() {
@@ -83,7 +84,7 @@ function checkPay() {
 
     if(typePay===2){
         if (parseFloat(newValue.toFixed(2)) !== parseFloat(totalPayment)){
-            alert("Toplam ödeme eşleşmiyor !!");
+            swal("Hata!", "Toplam ödeme eşleşmiyor !!", "warning");
             return;
         }
         payBill(parseFloat(cashPrice),parseFloat(creditPrice));
@@ -99,16 +100,18 @@ function checkPay() {
 function removeRow() {
     var orderId=document.getElementById('cancelSaleButton').getAttribute('data-value').slice(6);
     document.getElementById('cancelSaleModal').style.display = 'none';
-    $("#orders"+orderId).parent().parent().parent().hide(400);
+   // $("#orders"+orderId).parent().parent().parent().hide(400);
     document.getElementById("xorders"+orderId).className='xxxyyy';
-    calculateTotalPayment();
+    //calculateTotalPayment();
 
     var requestData={
         "saleId":parseInt(orderId),
         "comment":document.getElementById("commentInput").value,
-        "userNo":1
+        "userNo":1,
+        "quantity":document.getElementById("qtyInput").value
     };
     postModel(urlBackend+"sales/cancelSale",requestData);
+    location.reload();
 }
 
 function displayBlock(id) {
@@ -117,14 +120,14 @@ function displayBlock(id) {
     document.getElementById("chosenValue").value="İndirim seçiniz";
 }
 
-function calculateTotalPayment() {
+/*function calculateTotalPayment() {
     var priceList=document.getElementsByClassName("totalPrice");
     var totalPayment=0;
     for (var i=0;i<priceList.length;i++){
         totalPayment+=parseFloat(priceList[i].innerHTML);
     }
     document.getElementById('totalPayment').innerHTML=totalPayment.toFixed(2);
-}
+}*/
 
 function calculateTotalCreditCash() {
     var cashPrice=document.getElementById("creditInput").value;

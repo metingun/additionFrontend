@@ -114,32 +114,4 @@ function getCookie(cookie) {
     }
     return "";
 }
-/*var elem = document.documentElement;
-function openFullscreen() {
-    document.getElementById("fs").style.display="none";
-    document.getElementById("efs").style.display="";
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { /!* Firefox *!/
-        elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { /!* Chrome, Safari & Opera *!/
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { /!* IE/Edge *!/
-        elem.msRequestFullscreen();
-    }
-}
-
-function closeFullscreen() {
-    document.getElementById("fs").style.display="";
-    document.getElementById("efs").style.display="none";
-    if (document.exitFullscreen) {
-        document.exitFullscreen();
-    } else if (document.mozCancelFullScreen) {
-        document.mozCancelFullScreen();
-    } else if (document.webkitExitFullscreen) {
-        document.webkitExitFullscreen();
-    } else if (document.msExitFullscreen) {
-        document.msExitFullscreen();
-    }
-}*/
 

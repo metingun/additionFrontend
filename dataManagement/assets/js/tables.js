@@ -45,10 +45,10 @@ function createCollection() {
         document.getElementById("tablesList").innerHTML+=htmlTemplate(post.data);
 
         document.getElementById("inputTable").value="";
-        alert("Birim başarıyla eklendi...");
+        swal("Başarılı!", "Birim başarıyla eklendi...", "success");
     }
     else{
-        alert("Aynı isimde birim mevcut !!! ");
+        swal("Hata!", "Aynı isimde birim mevcut !!!", "warning");
     }
 
 }

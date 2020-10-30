@@ -5,17 +5,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Gider Yönetimi</title>
+    <title>Mutfak-Bar-Nargile</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/accounting.css'>
+<!--    <link rel='stylesheet' href='css/other/bootstrap-3.3.7.css'>
+    <link rel='stylesheet' href='css/other/bootstrap-datepicker-1.7.1.css'>-->
 
 
 
 </head>
 
 <body>
-<div class="container-fluid mainTitleIncome">GİDER YÖNETİMİ</div>
+<div class="container-fluid mainTitleIncome">MUTFAK, BAR VE NARGİLE SATIŞLARI</div>
 
 <div class="wrapper">
 
@@ -30,11 +32,11 @@
     </label>
 
     <label>
-        <button type="button" onclick="setDailyOutcomeValues();">Görüntüle</button>
+        <button type="button" onclick="setSaleByRayonValues();">Görüntüle</button>
     </label><br/>
 
     <p>
-        <h4 style="color: white; font-size: 16px;"><p>* Gün sonu almak isterseniz Bitiş Tarihini boş bırakın. Başlangıç tarihine bulunduğunuz günden bir önceki günün tarihini girin.</p>
+    <h4 style="color: white; font-size: 16px;"><p>* Gün sonu almak isterseniz Bitiş Tarihini boş bırakın. Başlangıç tarihine bulunduğunuz günden bir önceki günün tarihini girin.</p>
     <p>* İki tarih arasında toplam verileri öğrenmek isterseniz hangi tarihler arasında olacağını girin.</p></h4>
 
     </p>
@@ -45,21 +47,24 @@
         <section>
             <div class="container valueIncomeContainer">
                 <div class="row">
-                    <div ng-click="loadOutcomeAddition()" class="col-md-12 valueIncome">
+                    <div ng-click="loadSaleListByRayon(1)" class="col-md-12 valueIncome">
                         <div class="generic_content clearfix">
                             <div class="generic_head_price clearfix">
                                 <div class="generic_head_content clearfix">
 
                                     <div class="head_bg" style="border-color: #67de5f rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #67de5f;"></div>
                                     <div class="head">
-                                        <span>Toplam Gider</span>
+                                        <span>Mutfak</span>
                                     </div>
 
                                 </div>
 
                                 <div class="generic_price_tag clearfix">
-                                <span class="price">
-                                    <span class="currency" id="totalOutcome"></span>
+                                <span class="price">Gelir:&nbsp;
+                                    <span class="currency" id="kitchen"></span>
+                                </span>
+                                    <span class="price">Satış Adeti:&nbsp;
+                                    <span class="currency" id="kitchenQty"></span>
                                 </span>
                                 </div>
 
@@ -68,21 +73,24 @@
                         </div>
 
                     </div>
-                    <div ng-click="loadOutcome()" class="col-md-12 valueIncome">
+                    <div ng-click="loadSaleListByRayon(2)" class="col-md-12 valueIncome">
                         <div class="generic_content clearfix">
                             <div class="generic_head_price clearfix">
                                 <div class="generic_head_content clearfix">
 
                                     <div class="head_bg" style="border-color: #97c2d6 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #97c2d6;"></div>
                                     <div class="head">
-                                        <span>Personel Ödemeleri</span>
+                                        <span>Bar</span>
                                     </div>
 
                                 </div>
 
                                 <div class="generic_price_tag clearfix">
-                                    <span class="price">
-                                    <span class="currency" id="totalPersonalOutcome"></span>
+                                    <span class="price">Gelir:&nbsp;
+                                    <span class="currency" id="bar"></span>
+                                </span>
+                                    <span class="price">Satış Adeti:&nbsp;
+                                    <span class="currency" id="barQty"></span>
                                 </span>
                                 </div>
 
@@ -91,17 +99,40 @@
                         </div>
 
                     </div>
-                    <div id="outcomeTotalValues">
+                    <div ng-click="loadSaleListByRayon(3)" class="col-md-12 valueIncome">
+                        <div class="generic_content clearfix">
+                            <div class="generic_head_price clearfix">
+                                <div class="generic_head_content clearfix">
+
+                                    <div class="head_bg" style="border-color: #f3ac55 rgba(0, 0, 0, 0) rgba(0, 0, 0, 0) #f3ac55;"></div>
+                                    <div class="head">
+                                        <span>Nargile</span>
+                                    </div>
+
+                                </div>
+
+                                <div class="generic_price_tag clearfix">
+                                    <span class="price">Gelir:&nbsp;
+                                    <span class="currency" id="nargile"></span>
+                                </span>
+                                    <span class="price">Satış Adeti:&nbsp;
+                                    <span class="currency" id="nargileQty"></span>
+                                </span>
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
+
                 </div>
 
             </div>
         </section>
 
     </div>
-
-    <div style="display: none" class="col-md-6 containerAdditionTable" id="containerOutcomeTable">
+    <div style="display: none" class="col-md-6 containerAdditionTable" id="containerAdditionTable">
         <div ng-app="sortTable" ng-controller="mainCtrl" >
             <h1>Veriler</h1>
             <div class="filter-table">
@@ -111,25 +142,25 @@
                 <thead>
                 <tr>
                     <th>Tarih</th>
-                    <th>Ödeme</th>
-                    <th>Türü</th>
-                    <th>Personel Adı</th>
-                    <th>Açıklama</th>
-
+                    <th>Ürün</th>
+                    <th>Adet</th>
+                    <th>Toplam Fiyat</th>
+                    <th>Masa</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="x in datas | filter: searchPerson">
-                    <td>{{ x.date }}</td>
-                    <td>{{ x.price }}</td>
-                    <td>{{ x.type }}</td>
-                    <td>{{ x.personelName }}</td>
-                    <td>{{ x.comment }}</td>
+                    <td>{{ x.salesDate }}</td>
+                    <td>{{ x.productName }}</td>
+                    <td>{{ x.quantity }}</td>
+                    <td>{{ x.totalPrice }}</td>
+                    <td>{{ x.tableName }}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
+
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>

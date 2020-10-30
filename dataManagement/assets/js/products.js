@@ -58,8 +58,8 @@ function createProduct() {
         document.getElementById("inputProductName").value="";
         document.getElementById("inputInPrice").value="";
         document.getElementById("inputOutPrice").value="";
-        alert("Ürün başarıyla eklendi...");
+        swal("Başarılı!", "Ürün başarıyla eklendi...", "success");
     }else{
-        alert("Aynı isimde veya NO'da ürün mevcut !!! ");
+        swal("Hata!", "Aynı isimde veya NO'da ürün mevcut !!!", "warning");
     }
 }

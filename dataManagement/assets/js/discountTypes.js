@@ -39,6 +39,7 @@ function createDiscountType() {
 
         document.getElementById("inputName").value="";
         document.getElementById("inputRate").value="";
+
         alert("İndirim başarıyla eklendi...");
     }
     else{

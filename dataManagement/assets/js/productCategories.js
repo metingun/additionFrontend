@@ -40,13 +40,12 @@ function createProductCategory() {
         document.getElementById("categoryList").innerHTML+=htmlTemplate(post.data);
 
         document.getElementById("inputCategory").value="";
-        alert("Kategori başarıyla eklendi...");
+        swal("Başarılı!", "Kategori başarıyla eklendi...", "success");
         constantCategoryId+=1;
     }
     else{
-        alert("Aynı isimde kategori mevcut !!! ");
+        swal("Hata!!", "Aynı isimde kategori mevcut !!!", "warning");
     }
-
 }
 function findCategoryType(type) {
     if (type===1){

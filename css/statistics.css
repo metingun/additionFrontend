@@ -1,3 +1,12 @@
+.bgIcon{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 21px;
+    width: 20%;
+    opacity: 60%;
+    display: block;
+}
+
 .modal {
     will-change: visibility, opacity;
     display: -webkit-box;
@@ -1501,11 +1510,10 @@ body {
 }
 .tile-lg {
     width: 65%;
-    height: 270px;
+    height: 250px;
 }
 .tile-lg .content-wrapper .tile-content {
-    height: 270px;
-    padding: 20px;
+    height: 250px;
 }
 .tile-lg .content-wrapper .tile-content .tile-img {
     height: 180px;

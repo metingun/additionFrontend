@@ -8,7 +8,8 @@ function login() {
     };
     var post=postModel(urlBackend+"user/login",requestData).data;
     if (post===null){
-        alert("Kullanıcı Adı Veya Şifre Hatalı");
+        swal("Hata!", "Kullanıcı Adı Veya Şifre Hatalı !!", "warning");
+
     }
     else{
         document.cookie = "username="+post.userName+"; path=/; max-age="+60*60*60*2+";";

@@ -13,14 +13,14 @@ function changePassword() {
 
     if (newPassword===newPasswordAgain){
         if (postModel(urlBackend+"user/changePassword",requestData).data===null){
-            alert("Kullanıcı Adı Veya Şifre Hatalı");
+            swal("Hata!", "Kullanıcı Adı Veya Şifre Hatalı!", "warning");
         }
         else{
-            alert("Şifre Değişikliği Başarılı");
+            swal("Başarılı!", "Şifre Değişikliği Başarılı!", "success");
         }
     }
     else {
-        alert("Yeni Şifre ve Tekrarı Uyuşmuyor")
+        swal("Hata!", "Yeni Şifre ve Tekrarı Uyuşmuyor!", "warning");
     }
 
 }
