@@ -9,6 +9,8 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/accounting.css'>
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/preloader.css" rel="stylesheet">
 <!--    <link rel='stylesheet' href='css/other/bootstrap-3.3.7.css'>
     <link rel='stylesheet' href='css/other/bootstrap-datepicker-1.7.1.css'>-->
 
@@ -21,17 +23,17 @@
 
 <div class="wrapper">
 
-    <label>
-        <input type="text" class="dateselect" id="startDate" required="required"/>
+    <label class="dateLabel">
+        <input type="text" class="dateselect" id="startDate" required="required" autocomplete="off"/>
         <span>Başlangıç Tarihi</span>
 
     </label>
-    <label>
-        <input type="text" class="dateselect" id="finishDate" required="required"/>
+    <label class="dateLabel">
+        <input type="text" class="dateselect" id="finishDate" required="required" autocomplete="off"/>
         <span>Bitiş Tarihi</span>
     </label>
 
-    <label>
+    <label class="dateLabelBtn">
         <button type="button" onclick="setDailyIncomeValues();">Görüntüle</button>
     </label><br/>
 
@@ -194,8 +196,10 @@
 
     </div>
     <div style="display: none" class="col-md-6 containerAdditionTable" id="containerAdditionTable">
+        <div class="preloader" id="preloader">
+            <div class="sk-spinner sk-spinner-pulse"></div>
+        </div>
         <div ng-app="sortTable" ng-controller="mainCtrl" >
-            <h1>Veriler</h1>
             <div class="filter-table">
                 <input type="text" placeholder="Anahtar kelimeyi ara..." ng-model="searchPerson"/>
             </div>
@@ -210,17 +214,61 @@
                 <tbody>
                 <tr ng-repeat="x in datas | filter: searchPerson">
                     <td>{{ x.additionFinishDate }}</td>
-                    <td>{{ x.payment }}</td>
+                    <td>{{ x.discountedPayment }}</td>
                     <td>{{ x.tableName }}</td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
-
+    <div style="display: none" class="col-md-6 containerAdditionTable" id="containerCashTable">
+        <div ng-app="sortTable" ng-controller="mainCtrl" >
+            <div class="filter-table">
+                <input type="text" placeholder="Anahtar kelimeyi ara..." ng-model="searchPerson"/>
+            </div>
+            <table class="additionTable">
+                <thead>
+                <tr>
+                    <th>Tarih</th>
+                    <th>Nakit Ödeme</th>
+                    <th>Masa</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in datas | filter: searchPerson">
+                    <td>{{ x.additionFinishDate }}</td>
+                    <td>{{ x.cashPayment }}</td>
+                    <td>{{ x.tableName }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div style="display: none" class="col-md-6 containerAdditionTable" id="containerCreditTable">
+        <div ng-app="sortTable" ng-controller="mainCtrl" >
+            <div class="filter-table">
+                <input type="text" placeholder="Anahtar kelimeyi ara..." ng-model="searchPerson"/>
+            </div>
+            <table class="additionTable">
+                <thead>
+                <tr>
+                    <th>Tarih</th>
+                    <th>Kredi Kartı Ödeme</th>
+                    <th>Masa</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="x in datas | filter: searchPerson">
+                    <td>{{ x.additionFinishDate }}</td>
+                    <td>{{ x.creditCardPayment }}</td>
+                    <td>{{ x.tableName }}</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
     <div style="display: none" class="col-md-6 containerAdditionTable" id="containerOutcomeTable">
         <div ng-app="sortTable" ng-controller="mainCtrl" >
-            <h1>Gelir Detayları</h1>
             <div class="filter-table">
                 <input type="text" placeholder="Anahtar kelimeyi ara..." ng-model="searchPerson"/>
             </div>
@@ -232,13 +280,6 @@
                     <th>Türü</th>
                     <th>Personel Adı</th>
                     <th>Açıklama</th>
-                    <!--                    <th ng-click="main.changeSortType(name)">Tarih
-                                            <span ng-show="main.isSortType(name) " ng-class="{down : main.isOrderedReverse(), up: !main.isOrderedReverse()}"></span>
-                                        </th>
-                                        <th ng-click="main.changeSortType(surname)">Ödeme
-                                            <span ng-show="main.isSortType(surname) " ng-class="{down : main.isOrderedReverse(), up: !main.isOrderedReverse()}"></span></th>
-                                        <th ng-click="main.changeSortType(age)">Masa
-                                            <span ng-show="main.isSortType(age) " ng-class="{down : main.isOrderedReverse(), up: !main.isOrderedReverse()}"></span></th>-->
                 </tr>
                 </thead>
                 <tbody>

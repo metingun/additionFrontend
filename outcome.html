@@ -9,7 +9,8 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/accounting.css'>
-
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/preloader.css" rel="stylesheet">
 
 
 </head>
@@ -19,18 +20,18 @@
 
 <div class="wrapper">
 
-    <label>
-        <input type="text" class="dateselect" id="startDate" required="required"/>
+    <label class="dateLabel">
+        <input type="text" class="dateselect" id="startDate" required="required" autocomplete="off"/>
         <span>Başlangıç Tarihi</span>
 
     </label>
-    <label>
-        <input type="text" class="dateselect" id="finishDate" required="required"/>
+    <label class="dateLabel">
+        <input type="text" class="dateselect" id="finishDate" required="required" autocomplete="off"/>
         <span>Bitiş Tarihi</span>
     </label>
 
-    <label>
-        <button type="button" onclick="setDailyOutcomeValues();">Görüntüle</button>
+    <label class="dateLabelBtn">
+        <button type="button" id="vallInc" onclick="setDailyOutcomeValues();">Görüntüle</button>
     </label><br/>
 
     <p>
@@ -102,8 +103,10 @@
     </div>
 
     <div style="display: none" class="col-md-6 containerAdditionTable" id="containerOutcomeTable">
+        <div class="preloader" id="preloader">
+            <div class="sk-spinner sk-spinner-pulse"></div>
+        </div>
         <div ng-app="sortTable" ng-controller="mainCtrl" >
-            <h1>Veriler</h1>
             <div class="filter-table">
                 <input type="text" placeholder="Anahtar kelimeyi ara..." ng-model="searchPerson"/>
             </div>
@@ -115,6 +118,7 @@
                     <th>Türü</th>
                     <th>Personel Adı</th>
                     <th>Açıklama</th>
+                    <th>İşlemler</th>
 
                 </tr>
                 </thead>
@@ -125,13 +129,53 @@
                     <td>{{ x.type }}</td>
                     <td>{{ x.personelName }}</td>
                     <td>{{ x.comment }}</td>
+                    <td><button type="button" ng-click="loadEditOutcomeModal(x.id)">Düzenle</button>
+                        <button type="button" ng-click="loadDeleteOutcomeModal(x.id)">Sil</button></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
+<div class="modal" id="yesNoModal" style="z-index: 10;width: 50%; transform: translate(50%,1%);">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close"
+                  onclick="document.getElementById('yesNoModal').style.display = 'none';">&times;</span>
+            <h2>Gider Verisini Sil</h2>
+        </div>
+        <div class="modal-body">
+            <h4 style="color:red;">Gider verisini silmek istediğinize emin misiniz?</h4>
+        </div>
+        <div class="modal-footer">
+            <button data-value="" id="yesButton" onclick="editOutcomeComplete(1)">Evet</button>
+            <button data-value="" id="noButton" onclick="document.getElementById('yesNoModal').style.display = 'none';">Hayır</button>
+        </div>
+    </div>
 
+</div>
+<div class="modal" id="editOutcomeModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <span class="close"
+                  onclick="document.getElementById('editOutcomeModal').style.display = 'none';">&times;</span>
+            <h2>Gider Verisini Düzenle</h2>
+        </div>
+        <div class="modal-body">
+            <b>Ödeme Tarihi:&nbsp;</b><h4 id="pmtDate"></h4><br/>
+            <b>Ödeme:&nbsp;</b><h4 style="color: red" id="totalPmt"></h4><br/>
+            <b>Gider Tipi&nbsp;</b><h4 style="color: red" id="cashType"></h4><br/>
+            <b>Personel Adı:&nbsp;</b><h4 id="personelEdit"></h4><br/>
+            <input id="cashEdit" placeholder="Yeni Ödeme Miktarı" onchange="setValueById('newTotalPmt',parseFloat(document.getElementById('cashEdit').value))" type="number"><br/><p></p>
+            <b>Yeni Ödeme:&nbsp;</b><h4 id="newTotalPmt" style="color: red"></h4><br/>
+
+        </div>
+        <div class="modal-footer">
+            <button data-value="" id="editOutcomeButton" onclick="editOutcomeComplete(0)">Tamamla</button>
+        </div>
+    </div>
+
+</div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <!--
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>

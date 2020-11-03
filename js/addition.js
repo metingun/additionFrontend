@@ -13,6 +13,19 @@ function additionHtmlTemplate(responseData) {
         '</div></div></li>';
 }
 
+function additionHtmlTemplatePrint(responseData) {
+    return '<li class="items odd">' +
+        '<div class="infoWrap">' +
+        '<div class="cartSection" style="width: 65%;">' +
+        '<img src="images/gossip1.png" alt="" class="itemImg" />' +
+        '<p class="itemNumber">'+responseData.categoryName+'</p>' +
+        '<h3>'+responseData.productName+'</h3>' +
+        '<p><b> '+responseData.quantity+' x ₺'+responseData.unitPrice+'</b></p></div>' +
+        '<div class="prodTotal cartSection">' +
+        '<b>₺<p id="xorders'+responseData.id+'" class="totalPrice">'+responseData.totalPrice+'</p></b></div>' +
+        '</div></li>';
+}
+
 function printerHtmlTemplate(responseData) {
     return '<b>'+responseData.productName+'</b>&nbsp;<b>x '+responseData.quantity+'</b>&nbsp;&nbsp;&nbsp;&nbsp;<b>'+responseData.totalPrice.toFixed(2)+'&nbsp;TL</b><br/>';
 }
@@ -45,6 +58,26 @@ function additionLoad() {
 
         document.getElementById("totalPayment").innerHTML=totalPayment.toFixed(2);
 }
+
+function additionPrintLoad() {
+    var url=new URL(window.location.href);
+    var tableName=url.searchParams.get("tableName");
+    document.getElementById("projTitle1").textContent=tableName;
+    var totalPayment=0;
+    var requestData={
+        "tableName":tableName
+    };
+    const response=postModel(urlBackend+"addition/getAdditionByTableName",requestData).data;
+        for (let i=0; i<response.length; i++){
+            document.getElementById("cartWrap1").innerHTML+=additionHtmlTemplatePrint(response[i]);
+            document.getElementById("printView").innerHTML+=printerHtmlTemplate(response[i]);
+            totalPayment+=response[i].totalPrice;
+        }
+        document.getElementById("printView").innerHTML+=printerTotalHtmlTemplate(totalPayment);
+
+        document.getElementById("totalPayment").innerHTML=totalPayment.toFixed(2);
+}
+
 function loadDiscounts() {
     const response=getModel(urlBackend+"discountType/getAll").data;
 
@@ -183,3 +216,4 @@ function printPrinter() {
 
     //newWin.document.close();
 }
+

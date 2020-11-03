@@ -5,7 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Adisyon Verileri</title>
+    <title>Firma Satış Verileri</title>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/accounting.css'>
@@ -16,7 +16,7 @@
 </head>
 
 <body>
-<div class="container-fluid mainTitleIncome">ADİSYON VERİLERİ</div>
+<div class="container-fluid mainTitleIncome">FİRMA SATIŞ VERİLERİ</div>
 
 <div class="wrapper">
 
@@ -31,7 +31,7 @@
     </label>
 
     <label class="dateLabelBtn">
-        <button type="button" onclick="document.getElementById('vallInc').click();">Görüntüle</button>
+        <button type="button" onclick="setSalesByCompany();">Görüntüle</button>
     </label><br/>
 
     <p>
@@ -46,14 +46,18 @@
         <section>
             <div class="container valueIncomeContainer">
                 <div class="row">
-                    <div style="display: none" ng-click="loadAllAddition()" class="col-md-12 valueIncome" id="vallInc"></div>
+                    <button style="display:none;" ng-click="loadSalesCompanyData()" id="companySalesDetailButton">Göster</button>
+                    <div id="companySaleTotalValues">
+
+                    </div>
                 </div>
 
             </div>
         </section>
 
     </div>
-    <div style="display: none" class="col-md-6 containerAdditionTableX" id="containerAdditionTable">
+
+    <div style="display: none" class="col-md-6 containerAdditionTable" id="containerSaleCompanyTable">
         <div class="preloader" id="preloader">
             <div class="sk-spinner sk-spinner-pulse"></div>
         </div>
@@ -69,7 +73,6 @@
                     <th>Kredi Kartı</th>
                     <th>Toplam</th>
                     <th>Masa</th>
-                    <th>İşlemler</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -79,61 +82,17 @@
                     <td>{{ x.creditCardPayment }}</td>
                     <td>{{ x.discountedPayment }}</td>
                     <td>{{ x.tableName }}</td>
-                    <td><button type="button" ng-click="loadEditAdditionModal(x.id)">Düzenle</button>
-                        <button type="button" ng-click="loadDeleteAdditionModal(x.id)">Sil</button></td>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-<div class="modal" id="yesNoModal" style="z-index: 10;width: 50%; transform: translate(50%,1%);">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close"
-                  onclick="document.getElementById('yesNoModal').style.display = 'none';">&times;</span>
-            <h2>Adisyonu Sil</h2>
-        </div>
-        <div class="modal-body">
-            <h4 style="color:red;">Adisyon verisini silmek istediğinize emin misiniz?</h4>
-        </div>
-        <div class="modal-footer">
-            <button data-value="" id="yesButton" onclick="editAdditionComplete(1)">Evet</button>
-            <button data-value="" id="noButton" onclick="document.getElementById('yesNoModal').style.display = 'none';">Hayır</button>
-        </div>
-    </div>
 
-</div>
-<div class="modal" id="editAdditionModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close"
-                  onclick="document.getElementById('editAdditionModal').style.display = 'none';">&times;</span>
-            <h2>Adisyonu Düzenle</h2>
-        </div>
-        <div class="modal-body">
-            <b>Ödeme Tarihi:&nbsp;</b><h4 id="pmtDate"></h4><br/>
-            <b>Masa Adı:&nbsp;</b><h4 id="tableNameEdit"></h4><br/>
-            <b>Nakit Ödeme:&nbsp;</b><h4 style="color: red" id="cashPmt"></h4><br/>
-            <b>Kredi Kartı Ödeme:&nbsp;</b><h4 style="color: red" id="creditPmt"></h4><br/>
-            <b>Toplam Ödeme:&nbsp;</b><h4 id="totalPmt"></h4><br/>
-            <input id="cashEdit" placeholder="Yeni Nakit Ödeme" onchange="setValueById('newTotalPmt',parseFloat(document.getElementById('cashEdit').value)+parseFloat(document.getElementById('creditEdit').value))" type="number"><br/><p></p>
-            <input id="creditEdit" placeholder="Yeni Kredi Kartı Ödeme" onchange="setValueById('newTotalPmt',parseFloat(document.getElementById('cashEdit').value)+parseFloat(document.getElementById('creditEdit').value))" type="number"><br/><p></p>
-            <b>Yeni Toplam:&nbsp;</b><h4 id="newTotalPmt" style="color: red"></h4><br/>
-
-        </div>
-        <div class="modal-footer">
-            <button data-value="" id="editAdditionButton" onclick="editAdditionComplete(0)">Tamamla</button>
-        </div>
-    </div>
-
-</div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <!--
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
 -->
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js'></script>
 <!--<script src="js/other/bootstrap-datepicker-1.7.1.min.js"></script>
@@ -144,7 +103,9 @@
 <script src="js/accounting.js"></script>
 <script src='-config.js'></script>
 <script src="dataManagement/assets/js/datePicker.js"></script>
-<script id="rendered-js">
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<script>
     datepicker();
 </script>
 

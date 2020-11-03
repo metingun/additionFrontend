@@ -30,7 +30,9 @@
             <button class="fullScreen" id="efs" onclick="logout();">
                 <img src="images/exit.svg">
             </button>
-
+            <button class="btn btn-info navbar-toggle" onclick="location.href='additionDataPrint.html';">
+                Geçmiş Adisyonlar
+            </button>
             <button class="btn btn-primary navbar-toggle" id="outputButton" data-target='#outputModal' data-toggle='modal'
                     onclick="outputModalLoad();">
                 Kasa Gideri Gir
@@ -176,9 +178,13 @@
                     Siparişi Tamamla -><span id="completeOrderBtn"></span>
                 </button>
                 <div id="salesHeaderOut" style="float: left;width: 75%;">
+                    <select id="customerOut" style="width: 30%;height: 40px;">
+
+
+                    </select>
                     <input id="address" placeholder="Adres başlığını giriniz." style="width: 30%;height: 40px;"
                            type="text">
-                    <input id="addressDetail" placeholder="Adres detayını giriniz." style="width: 65%;height: 40px;"
+                    <input id="addressDetail" placeholder="Adres detayını giriniz." style="width: 35%;height: 40px;"
                            type="text">
                 </div>
                 <button class="btn btn-default" data-dismiss="modal"

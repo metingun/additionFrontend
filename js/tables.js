@@ -86,7 +86,7 @@ function htmlTemplateOutCompany2() {
 }
 
 function tablesLoadSecond() {
-    const response2 = getModel(urlBackend+"company/getAll").data;
+    const response2 = getModel(urlBackend+"company/getByMenuType/menuType=0").data;
     document.getElementById("navHead").innerHTML = "";
     for (let i = 0; i < response2.length; i++) {
         document.getElementById("navHead").innerHTML += htmlTemplateOutCompany(response2[i]);
@@ -199,9 +199,20 @@ function sendMoneyOutput() {
         });
 
 }
-
+function customerOutHtmlTemplate() {
+    return '<option value="-1" style="color: red">Anlaşmalı Müşteri Seçimi</option>';
+}
+function customerOutHtmlTemplate1(responseData) {
+    return '<option value="'+responseData.companyName+'">'+responseData.companyName+'</option>';
+}
 function menuLoad2(menuType) {
     document.getElementById("salesHeaderOut").style.display="";
+    document.getElementById("customerOut").innerHTML+=customerOutHtmlTemplate();
+    const response1 = getModel(urlBackend+"company/getByMenuType/menuType=1").data;
+    for (let i = 0; i < response1.length; i++) {
+        document.getElementById("customerOut").innerHTML += customerOutHtmlTemplate1(response1[i]);
+    }
+
     const response = getModel(urlBackend+"categories/getAll").data;
     document.getElementById("myTab").innerHTML = "";
     document.getElementById("myTabContent").innerHTML = "";
@@ -270,8 +281,16 @@ function completedSales() {
     var tableName = document.getElementById("completeOrderBtn").textContent;
 
     if (tableName===""){
-        param=1;
-        tableName=document.getElementById("address").value+"||"+document.getElementById("addressDetail").value;
+        if (document.getElementById("customerOut").value==="-1"){
+            param=1;
+            tableName=document.getElementById("address").value+"||"+document.getElementById("addressDetail").value;
+        }
+        else {
+            param=2;
+            var today= new Date();
+            var orderTime=today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+            tableName=document.getElementById("customerOut").value+"||"+orderTime;
+        }
     }
 
     for (var i = 0; i < cart.length; i++) {
@@ -291,6 +310,12 @@ function completedSales() {
             "tableName": tableName
         };
         postModel(urlBackend+"tables/save/companyId=-1",requestData);
+    }
+    if (param===2){
+        var requestData1={
+            "tableName": tableName
+        };
+        postModel(urlBackend+"tables/save/companyId=-2",requestData1);
     }
     postModel(urlBackend+"sales/save", requestDataList);
     cartList = [];

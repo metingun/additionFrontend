@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Adisyon Detayı</title>
+    <link href="css/addition.css" rel="stylesheet">
+    <link href="css/addition2.css" rel="stylesheet">
+
+</head>
+
+<body class="boddy" data-value="6" id="headerx">
+<div id="asd" style="position:fixed;opacity: 0;z-index: -100;">
+<div id="printView" style="font-size: 5pt;" >
+</div>
+</div>
+<button class="fullScreen" id="efs" style="width: 2.5%;margin: 1%;" onclick="location.href='additionDataPrint.html';">
+    <img src="images/back.png">
+</button>
+<button class="fullScreen" style="width: 2.5%;" onclick="location.reload();">
+    <img src="images/refresh.svg">
+</button>
+
+<div class="wrap cf">
+    <h1 class="projTitle">ADİSYON BİLGİLERİ</h1>
+    <h3 class="projTitle1" id="projTitle1"></h3>
+
+    <div class="heading cf">
+        <form>
+            <a href="tables.html" id="chosenValue" class="chosen-value" onclick="printPrinter();" style="
+            text-decoration: dashed;
+    text-align: center;
+    font-weight: 700;
+    border: ridge;
+    font-size: 120%;">Adisyonu Yazdır</a>
+            <ul class="value-list" id="valueList">
+            </ul>
+        </form>
+        <div class="input-container">
+
+        </div>
+        <a class="continue" href="#"><b style="font-weight: 600;font-size: 140%;"><b id="totalPayment" style="font-weight: 700;font-size: 140%;"></b>₺</b></a>
+
+    </div>
+    <div class="cart">
+        <ul class="cartWrap" id="cartWrap1">
+        </ul>
+    </div>
+
+</div>
+
+<!--
+<script src='js/other/jquery-2.1.3.min.js'></script>
+-->
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js'></script>
+
+<script src="js/globalFunction.js"></script>
+<script src="js/main.js"></script>
+<script src="js/addition.js"></script>
+<script src="js/addition2.js"></script>
+<script src='-config.js'></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+
+</body>
+
+</html>
+

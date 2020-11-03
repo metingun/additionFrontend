@@ -9,8 +9,11 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker.css'>
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
     <link rel='stylesheet' href='css/accounting.css'>
-<!--    <link rel='stylesheet' href='css/other/bootstrap-3.3.7.css'>
-    <link rel='stylesheet' href='css/other/bootstrap-datepicker-1.7.1.css'>-->
+    <link href="css/animate.min.css" rel="stylesheet">
+    <link href="css/preloader.css" rel="stylesheet">
+
+    <!--    <link rel='stylesheet' href='css/other/bootstrap-3.3.7.css'>
+        <link rel='stylesheet' href='css/other/bootstrap-datepicker-1.7.1.css'>-->
 
 
 
@@ -21,17 +24,17 @@
 
 <div class="wrapper">
 
-    <label>
-        <input type="text" class="dateselect" id="startDate" required="required"/>
+    <label class="dateLabel">
+        <input type="text" class="dateselect" id="startDate" required="required" autocomplete="off"/>
         <span>Başlangıç Tarihi</span>
 
     </label>
-    <label>
-        <input type="text" class="dateselect" id="finishDate" required="required"/>
+    <label class="dateLabel">
+        <input type="text" class="dateselect" id="finishDate" required="required" autocomplete="off"/>
         <span>Bitiş Tarihi</span>
     </label>
 
-    <label>
+    <label class="dateLabelBtn">
         <button type="button" onclick="setSaleByRayonValues();">Görüntüle</button>
     </label><br/>
 
@@ -132,9 +135,11 @@
         </section>
 
     </div>
-    <div style="display: none" class="col-md-6 containerAdditionTable" id="containerAdditionTable">
+    <div style="display: none" class="col-md-6 containerAdditionTable  " id="containerAdditionTable">
+        <div class="preloader" id="preloader">
+            <div class="sk-spinner sk-spinner-pulse"></div>
+        </div>
         <div ng-app="sortTable" ng-controller="mainCtrl" >
-            <h1>Veriler</h1>
             <div class="filter-table">
                 <input type="text" placeholder="Anahtar kelimeyi ara..." ng-model="searchPerson"/>
             </div>

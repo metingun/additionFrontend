@@ -48,8 +48,10 @@ function createPersonel() {
         document.getElementById("inputJob").value="";
         document.getElementById("inputSalary").value="";
         document.getElementById("inputPhoneNumber").value="";
-        alert("Personel başarıyla eklendi...");
+        swal("Başarılı!", "Personel başarıyla eklendi...", "success");
+
     }else{
-        alert("Aynı isimde veya NO'da personel mevcut !!! ");
+        swal("Hata!", "Aynı isimde veya NO'da personel mevcut !!", "warning");
+
     }
 }

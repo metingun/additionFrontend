@@ -1,8 +1,32 @@
+#editAdditionModal, #editOutcomeModal{
+    z-index: 10;
+    width: 50%;
+    transform: translate(50%, 1%);
+}
+.dateLabel{
+    max-width: 25%;
+    margin-right: 25px;
+}
+.dateLabelBtn button{
+    height: 40px;
+    width: 140px;
+    background: white;
+}
 #personalDetailButton{
-    margin-bottom: 5%;
-    background: #ea1327;
+    margin-bottom: 8%;
+    width: 85%;
+    background: #ff4b5b;
     color: white;
     font-weight: 700;
+    margin-left: 30px;
+}
+#companySalesDetailButton{
+    margin-bottom: 8%;
+    width: 85%;
+    background: #ff4b5b;
+    color: white;
+    font-weight: 700;
+    margin-left: 30px;
 }
 .containerAdditionTable {
     width: 65%;
@@ -25,7 +49,6 @@ h1 {
 
 .additionTable {
     width: 100%;
-    border-collapse: collapse;
 }
 .additionTable th,
 .additionTable td {
@@ -33,13 +56,21 @@ h1 {
     text-align: left;
 }
 
+.additionTable tr {
+    border: inset;
+}
+
+.additionTable tbody {
+    font-size: 14px;
+    font-weight: 600;
+}
 .additionTable th {
     padding: 25px 20px;
     background: #b59cea;
     position: relative;
     cursor: pointer;
     color: #f2fbfa;
-    border-bottom: solid 15px;
+    border-bottom: solid 3px;
 }
 .additionTable th:after {
     content: "";
@@ -66,7 +97,7 @@ h1 {
 }
 
 .additionTable tr:nth-child(odd) td {
-    background-color: #f3ac55;
+    background-color: #dbd8e4;
 }
 .up,
 .down{
@@ -114,7 +145,7 @@ body {
     padding: 3%;
     margin-left: 1%;
     margin-top: 1%;
-    height: 375px;
+    height: 250px;
 }
 .wrapper1 {
     width: 95%;
@@ -129,10 +160,17 @@ body {
         margin-top: 1%;
         height: 390px;
     }
+    label{
+        display: block;
+    }
+    .dateLabel input {
+        display: block;
+        width: 300%;
+    }
+
 }
 label {
     position: relative;
-    display: block;
 }
 label > input {
     position: relative;

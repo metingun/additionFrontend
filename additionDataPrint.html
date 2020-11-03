@@ -22,12 +22,8 @@
 
     <label class="dateLabel">
         <input type="text" class="dateselect" id="startDate" required="required" autocomplete="off"/>
-        <span>Başlangıç Tarihi</span>
+        <span>Adisyon Kapanış Tarihi</span>
 
-    </label>
-    <label class="dateLabel">
-        <input type="text" class="dateselect" id="finishDate" required="required" autocomplete="off"/>
-        <span>Bitiş Tarihi</span>
     </label>
 
     <label class="dateLabelBtn">
@@ -35,8 +31,8 @@
     </label><br/>
 
     <p>
-        <h4 style="color: white; font-size: 16px;"><p>* Gün sonu almak isterseniz Bitiş Tarihini boş bırakın. Başlangıç tarihine bulunduğunuz günden bir önceki günün tarihini girin.</p>
-    <p>* İki tarih arasında toplam verileri öğrenmek isterseniz hangi tarihler arasında olacağını girin.</p></h4>
+        <h4 style="color: white; font-size: 16px;"><p>* Seçilen tarihte saat 08:00 ile sonraki gün saat 08:00 arasında bulunan adisyonlar görüntülenir.</p>
+    <p>* Adisyonun kapatıldığı tarihe göre görüntüleme yapılır.</p></h4>
 
     </p>
 
@@ -69,7 +65,7 @@
                     <th>Kredi Kartı</th>
                     <th>Toplam</th>
                     <th>Masa</th>
-                    <th>İşlemler</th>
+                    <th>Detay</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -79,55 +75,14 @@
                     <td>{{ x.creditCardPayment }}</td>
                     <td>{{ x.discountedPayment }}</td>
                     <td>{{ x.tableName }}</td>
-                    <td><button type="button" ng-click="loadEditAdditionModal(x.id)">Düzenle</button>
-                        <button type="button" ng-click="loadDeleteAdditionModal(x.id)">Sil</button></td>
+                    <td><button type="button" ng-click="loadAdditionPageByTableName(x.tableName)">Detayı Görüntüle</button>
                 </tr>
                 </tbody>
             </table>
         </div>
     </div>
 </div>
-<div class="modal" id="yesNoModal" style="z-index: 10;width: 50%; transform: translate(50%,1%);">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close"
-                  onclick="document.getElementById('yesNoModal').style.display = 'none';">&times;</span>
-            <h2>Adisyonu Sil</h2>
-        </div>
-        <div class="modal-body">
-            <h4 style="color:red;">Adisyon verisini silmek istediğinize emin misiniz?</h4>
-        </div>
-        <div class="modal-footer">
-            <button data-value="" id="yesButton" onclick="editAdditionComplete(1)">Evet</button>
-            <button data-value="" id="noButton" onclick="document.getElementById('yesNoModal').style.display = 'none';">Hayır</button>
-        </div>
-    </div>
 
-</div>
-<div class="modal" id="editAdditionModal">
-    <div class="modal-content">
-        <div class="modal-header">
-            <span class="close"
-                  onclick="document.getElementById('editAdditionModal').style.display = 'none';">&times;</span>
-            <h2>Adisyonu Düzenle</h2>
-        </div>
-        <div class="modal-body">
-            <b>Ödeme Tarihi:&nbsp;</b><h4 id="pmtDate"></h4><br/>
-            <b>Masa Adı:&nbsp;</b><h4 id="tableNameEdit"></h4><br/>
-            <b>Nakit Ödeme:&nbsp;</b><h4 style="color: red" id="cashPmt"></h4><br/>
-            <b>Kredi Kartı Ödeme:&nbsp;</b><h4 style="color: red" id="creditPmt"></h4><br/>
-            <b>Toplam Ödeme:&nbsp;</b><h4 id="totalPmt"></h4><br/>
-            <input id="cashEdit" placeholder="Yeni Nakit Ödeme" onchange="setValueById('newTotalPmt',parseFloat(document.getElementById('cashEdit').value)+parseFloat(document.getElementById('creditEdit').value))" type="number"><br/><p></p>
-            <input id="creditEdit" placeholder="Yeni Kredi Kartı Ödeme" onchange="setValueById('newTotalPmt',parseFloat(document.getElementById('cashEdit').value)+parseFloat(document.getElementById('creditEdit').value))" type="number"><br/><p></p>
-            <b>Yeni Toplam:&nbsp;</b><h4 id="newTotalPmt" style="color: red"></h4><br/>
-
-        </div>
-        <div class="modal-footer">
-            <button data-value="" id="editAdditionButton" onclick="editAdditionComplete(0)">Tamamla</button>
-        </div>
-    </div>
-
-</div>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 <!--
 <script src='https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js'></script>
@@ -141,7 +96,7 @@
 <script src="js/other/angular-1.6.9.min.js"></script>-->
 <script src="js/globalFunction.js"></script>
 <script src="js/main.js"></script>
-<script src="js/accounting.js"></script>
+<script src="js/additionPrint.js"></script>
 <script src='-config.js'></script>
 <script src="dataManagement/assets/js/datePicker.js"></script>
 <script id="rendered-js">

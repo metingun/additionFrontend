@@ -39,10 +39,11 @@ function createSalesCompany() {
         document.getElementById("salesCompanyList").innerHTML+=htmlTemplate(post.data);
 
         document.getElementById("companyName").value="";
-        alert("Firma başarıyla eklendi...");
+        swal("Başarılı!", "Firma başarıyla eklendi...", "success");
+
     }
     else{
-        alert("Aynı isimde firma mevcut !!! ");
+        swal("Hata!", "Aynı isimde firma mevcut !!", "warning");
     }
 
 }

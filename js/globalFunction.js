@@ -59,8 +59,8 @@ function setAttributeById(id,attributeName,attribute) {
 function getValueById(id) {
     return document.getElementById(id).value;
 }
-var power100=["1","2","3","4","5"];
-var power101=["1","3","4","5"];
+var power100=["1","2","3","4","5","6"];
+var power101=["1","3","4","5","6"];
 var power102=["2"];
 
 function sessionControl() {

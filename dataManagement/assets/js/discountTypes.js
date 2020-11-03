@@ -39,10 +39,11 @@ function createDiscountType() {
 
         document.getElementById("inputName").value="";
         document.getElementById("inputRate").value="";
+        swal("Başarılı!", "İndirim başarıyla eklendi...", "success");
 
-        alert("İndirim başarıyla eklendi...");
     }
     else{
-        alert("Aynı isimde indirim mevcut !!! ");
+        swal("Hata!", "Aynı isimde indirim mevcut !!", "warning");
+
     }
 }

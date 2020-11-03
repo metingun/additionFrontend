@@ -23,6 +23,10 @@ function pageLoad(pageNumber) {
             chefLoad("1",3);
             loadCancelSale();
             break;
+
+        case "6":
+            additionPrintLoad();
+            break;
     }
 }
 

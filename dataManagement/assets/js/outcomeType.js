@@ -35,9 +35,11 @@ function createOutcomeType() {
         document.getElementById("outcomeTypeList").innerHTML+=htmlTemplate(post.data);
 
         document.getElementById("inputOutcomeType").value="";
-        alert("Gider türü başarıyla eklendi...");
+        swal("Başarılı!", "Gider türü başarıyla eklendi...", "success");
+
     }
     else{
-        alert("Aynı isimde gider türü mevcut !!! ");
+        swal("Hata!", "Aynı isimde gider türü mevcut !!", "warning");
+
     }
 }
