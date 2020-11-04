@@ -44,8 +44,8 @@ function checkDisplayTable(id, display) {
                 });
             checkDisplayTable("containerAdditionTable", "");
         };
-        $scope.loadAdditionPageByTableName = function (tableName) {
-            location.href=urlFrontend+"additionPrint.html?tableName="+tableName;
+        $scope.loadAdditionPageByTableName = function (id) {
+            location.href=urlFrontend+"additionPrint.html?id="+id;
         };
 
     });

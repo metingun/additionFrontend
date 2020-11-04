@@ -61,14 +61,12 @@ function additionLoad() {
 
 function additionPrintLoad() {
     var url=new URL(window.location.href);
-    var tableName=url.searchParams.get("tableName");
-    document.getElementById("projTitle1").textContent=tableName;
+    var additionId=url.searchParams.get("id");
     var totalPayment=0;
-    var requestData={
-        "tableName":tableName
-    };
-    const response=postModel(urlBackend+"addition/getAdditionByTableName",requestData).data;
-        for (let i=0; i<response.length; i++){
+    const response=getModel(urlBackend+"addition/getAdditionDetailById/additionId="+additionId).data;
+    document.getElementById("projTitle1").textContent=response[0].tableName;
+
+    for (let i=0; i<response.length; i++){
             document.getElementById("cartWrap1").innerHTML+=additionHtmlTemplatePrint(response[i]);
             document.getElementById("printView").innerHTML+=printerHtmlTemplate(response[i]);
             totalPayment+=response[i].totalPrice;
