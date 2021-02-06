@@ -36,7 +36,7 @@
 
         <div class="input-container">
             <input class="wrapper inputs input-field" id="cashInput" type="number">
-            <img class="icon" id="cashTl" src="images/tl.svg">
+            <img class="icon" id="cashTl" src="">
             <div class="wrapper" style="margin-left: 2%;">
                 <label for="yes_radio" id="yes-lbl" style="left: -1%;"><img src="images/dollar.svg"
                                                                             style="width: 61%;margin-top: 10%;"></label>
@@ -50,9 +50,10 @@
                 <div class="toggle"></div>
             </div>
             <input class="wrapper inputs input-field" id="creditInput" type="number" oninput="calculateTotalCreditCash();">
-            <img class="icon" id="creditTl" src="images/tl.svg">
+            <img class="icon" id="creditTl" src="">
 
         </div>
+        <a style="width: 27%;font-size: larger;" class="continue" onclick="checkPay2();" href="#">Hesaptan Düş</a>
         <a class="continue" onclick="checkPay();" href="#">Hesabı Öde<b style="font-weight: 600;font-size: 140%;"><b id="totalCreditCash">(0 ₺) </b><b id="totalPayment"
                                                                                                style="font-weight: 700;font-size: 140%;"></b>₺</b></a>
 

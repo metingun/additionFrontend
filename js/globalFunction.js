@@ -44,6 +44,23 @@ function postModel(url, requestData) {
     return responseModel;
 }
 
+function postModel1(url, requestData) {
+    var responseModel = "";
+    $.ajax({
+        url:url,
+        type: 'POST',
+        contentType: 'application/json',
+        crossDomain: true,
+        dataType: 'json',
+        async: false,
+        data: requestData,
+        success: function (response) {
+            responseModel = response;
+        }
+    });
+    return responseModel;
+}
+
 function setAttributeForBackgroundImg(id,attributeName,attribute) {
     return document.getElementById(id).setAttribute(attributeName,"background-image: url("+attribute+");")
 }

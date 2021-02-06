@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Transfer</title>
+
+</head>
+<body>
+<button onclick="transferData();">Transfer Data</button>
+<script>
+    function transferData() {
+
+        /*var response1=getModel("http://localhost:8080/restful/"+"user/getAll").data;
+        response1=JSON.stringify(response1);
+        postModel("http://localhost:8081/restful/"+"user/saveAll",response1);
+
+        var response2=getModel("http://localhost:8080/restful/"+"tables/getAll").data;
+        response2=JSON.stringify(response2);
+        postModel("http://localhost:8081/restful/"+"tables/saveAll",response2);
+
+        var response3=getModel("http://localhost:8080/restful/"+"sales/getAll").data;
+        response3=JSON.stringify(response3);
+        postModel("http://localhost:8081/restful/"+"sales/saveAll",response3);*/
+
+        var response4=getModel("http://localhost:8080/restful/"+"categories/getAll").data;
+        response4=JSON.stringify(response4);
+        postModel1("http://localhost:8081/restful/"+"categories/saveAll",response4);
+
+        /*var response5=getModel("http://localhost:8080/restful/"+"company/getAll").data;
+        response5=JSON.stringify(response5);
+        postModel1("http://localhost:8081/restful/"+"company/saveAll",response5);
+
+        var response6=getModel("http://localhost:8080/restful/"+"discountType/getAll").data;
+        response6=JSON.stringify(response6);
+        postModel1("http://localhost:8081/restful/"+"discountType/saveAll",response6);
+
+        var response7=getModel("http://localhost:8080/restful/"+"personel/getAll").data;
+        response7=JSON.stringify(response7);
+        postModel1("http://localhost:8081/restful/"+"personel/saveAll",response7);
+
+        var response8=getModel("http://localhost:8080/restful/"+"outcomeType/getAll").data;
+        response8=JSON.stringify(response8);
+        postModel1("http://localhost:8081/restful/"+"outcomeType/saveAll",response8);
+
+        var response9=getModel("http://localhost:8080/restful/"+"product/getAll").data;
+        response9=JSON.stringify(response9);
+        postModel1("http://localhost:8081/restful/"+"product/saveAll",response9);
+
+        var response10=getModel("http://localhost:8080/restful/"+"addition/getAll").data;
+        response10=JSON.stringify(response10);
+        postModel1("http://localhost:8081/restful/"+"addition/saveAll",response10);
+
+        var response11=getModel("http://localhost:8080/restful/"+"cashOutflow/getAll").data;
+        response11=JSON.stringify(response11);
+        postModel1("http://localhost:8081/restful/"+"cashOutflow/saveAll",response11);*/
+    }
+
+</script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+<!-- JAVASCRIPT JS FILES -->
+<script src="js/other/jquery-3.2.1.min.js" type="text/javascript"></script>
+
+<script src="js/globalFunction.js"></script>
+
+
+</body>
+</html>

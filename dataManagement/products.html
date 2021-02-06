@@ -262,6 +262,39 @@
         </div>
     </div>
 </div>
+<div class="modal fade" id="productEditModal" role="dialog">
+    <div class="modal-dialog modal-lg" style="position: relative;transform: translateX(10%);">
+        <div class="modal-content">
+            <div class="modal-header modalHeader">
+                Ürün Bilgisi Düzenleme
+                <button class="btn btn-default" data-dismiss="modal"
+                        style="color: black;float:right;background-color: white;font-weight: 700;"
+                        type="button">
+                    X
+                </button>
+            </div>
+
+            <div class="modal-body"
+                 style="height: 450px;overflow: auto;background-attachment: fixed;background-repeat:no-repeat;background-size: cover;">
+                <b>Ürün Kategorisi:&nbsp;</b><h4 id="categoryName"></h4><br/>
+                <b>Ürün Adı:&nbsp;</b><h4 id="productName"></h4><br/>
+                <b>İç Fiyatı:&nbsp;</b><h4 style="color: red" id="unitPriceForIn"></h4><br/>
+                <b>Dış Fiyatı:&nbsp;</b><h4 style="color: red" id="unitPriceForOut"></h4><br/>
+                <input id="productNameEdit" placeholder="Yeni Ürün Adı" type="text"><br/><p></p>
+                <input id="unitPriceForInEdit" placeholder="Yeni İç Fiyat" type="text"><br/><p></p>
+                <input id="unitPriceForOutEdit" placeholder="Yeni Dış Fiyat" type="text"><br/><p></p>
+
+            </div>
+            <div class="modal-footer">
+                <button onclick="updateProductData()" class="btn btn-default" data-dismiss="modal"
+                        style="color: white;background-color: red;font-weight: 700;"
+                        type="button">
+                    Kaydet
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Argon Scripts -->
 <!-- Core -->
 <script src="assets/vendor/jquery/dist/jquery.min.js"></script>

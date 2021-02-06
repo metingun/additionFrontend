@@ -180,7 +180,7 @@ function sendMoneyOutput() {
     var outputType=document.getElementById("outputType").value;
     var comment=document.getElementById("commentX").value;
     var price=document.getElementById("priceX").value;
-    var personelName=document.getElementById("personals").innerText;
+    var personelName=document.getElementById("personals").value;
     if (outputType!=="0"){
         personelName="";
     }

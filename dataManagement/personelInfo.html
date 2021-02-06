@@ -254,6 +254,40 @@
 
     </div>
 </div>
+<div class="modal fade" id="personalEditModal" role="dialog">
+    <div class="modal-dialog modal-lg" style="position: relative;transform: translateX(10%);">
+        <div class="modal-content">
+            <div class="modal-header modalHeader">
+                Personel Bilgisi Düzenleme
+                <button class="btn btn-default" data-dismiss="modal"
+                        style="color: black;float:right;background-color: white;font-weight: 700;"
+                        type="button">
+                    X
+                </button>
+            </div>
+
+            <div class="modal-body"
+                 style="height: 450px;overflow: auto;background-attachment: fixed;background-repeat:no-repeat;background-size: cover;">
+                <b>Personel Adı:&nbsp;</b><h4 id="personalName"></h4><br/>
+                <b>Mesleği:&nbsp;</b><h4 id="personalJob"></h4><br/>
+                <b>Maaşı:&nbsp;</b><h4 style="color: red" id="personalSalary"></h4><br/>
+                <b>Telefon No:&nbsp;</b><h4 style="color: red" id="personalPhone"></h4><br/>
+                <input id="personalNameEdit" placeholder="Yeni Personel Adı" type="text"><br/><p></p>
+                <input id="personalJobEdit" placeholder="Yeni Meslek" type="text"><br/><p></p>
+                <input id="personalSalaryEdit" placeholder="Yeni Maaş" type="text"><br/><p></p>
+                <input id="personalPhoneEdit" placeholder="Yeni Telefon No" type="text"><br/><p></p>
+
+            </div>
+            <div class="modal-footer">
+                <button onclick="updatePersonalData()" class="btn btn-default" data-dismiss="modal"
+                        style="color: white;background-color: red;font-weight: 700;"
+                        type="button">
+                    Kaydet
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Argon Scripts -->
 <!-- Core -->
 <script src="assets/vendor/jquery/dist/jquery.min.js"></script>

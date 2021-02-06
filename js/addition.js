@@ -5,6 +5,7 @@ function additionHtmlTemplate(responseData) {
         '<img src="images/gossip1.png" alt="" class="itemImg" />' +
         '<p class="itemNumber">'+responseData.categoryName+'</p>' +
         '<h3>'+responseData.productName+'</h3>' +
+        '<p><b style="color: blue"> '+responseData.salesDate+'</b></p><br>' +
         '<p><b> '+responseData.quantity+' x ₺'+responseData.unitPrice+'</b></p></div>' +
         '<div class="prodTotal cartSection">' +
         '<b>₺<p id="xorders'+responseData.id+'" class="totalPrice">'+responseData.totalPrice+'</p></b></div>' +
@@ -51,9 +52,10 @@ function additionLoad() {
         for (let i=0; i<response.length; i++){
             document.getElementById("cartWrap1").innerHTML+=additionHtmlTemplate(response[i]);
             document.getElementById("printView").innerHTML+=printerHtmlTemplate(response[i]);
-            totalPayment+=response[i].totalPrice;
         }
-        totalPaymentConstant=totalPayment;
+        const response1=getModel(urlBackend+"tables/getTableByName/name="+tableName).data;
+        totalPayment=response1.payment;
+        totalPaymentConstant=response1.payment;
         document.getElementById("printView").innerHTML+=printerTotalHtmlTemplate(totalPayment);
 
         document.getElementById("totalPayment").innerHTML=totalPayment.toFixed(2);
@@ -100,16 +102,28 @@ function payBill(cash,credit) {
     };
 
     postModel(urlBackend+"addition/payBill",requestData);
-    printPrinter();
     swal("Başarılı!", "Ödeme başarıyla gerçekleşti !!", "success")
         .then(()=>{
             location.href=urlFrontend+"tables.html"
         });
 }
+function payPartialBill(cash,credit) {
+    var requestData={
+        "discountName":document.getElementsByClassName('chosen-value')[0].value,
+        "cashPayment":cash,
+        "creditCardPayment":credit,
+        "tableName":document.getElementById("projTitle1").innerHTML
+    };
 
+    postModel(urlBackend+"addition/payPartialBill",requestData);
+    swal("Başarılı!", "Ödeme başarıyla gerçekleşti !!", "success")
+        .then(()=>{
+            location.href=urlFrontend+"tables.html"
+        });
+}
 function checkPay() {
-    let cashPrice=document.getElementById("creditInput").value;
-    let creditPrice=document.getElementById("cashInput").value;
+    let cashPrice=document.getElementById("cashInput").value;
+    let creditPrice=document.getElementById("creditInput").value;
     let newValue=(parseFloat(cashPrice)+parseFloat(creditPrice));
     let totalPayment=document.getElementById('totalPayment').innerHTML;
 
@@ -127,7 +141,21 @@ function checkPay() {
         payBill(0,parseFloat(totalPayment));
     }
 }
+function checkPay2() {
+    let cashPrice=document.getElementById("cashInput").value;
+    let creditPrice=document.getElementById("creditInput").value;
+    let totalPayment=document.getElementById('totalPayment').innerHTML;
 
+    if(typePay===2){
+        payPartialBill(parseFloat(cashPrice),parseFloat(creditPrice));
+    }
+    else if (typePay===1){
+        payPartialBill(parseFloat(totalPayment),0);
+    }
+    else {
+        payPartialBill(0,parseFloat(totalPayment));
+    }
+}
 function removeRow() {
     var orderId=document.getElementById('cancelSaleButton').getAttribute('data-value').slice(6);
     document.getElementById('cancelSaleModal').style.display = 'none';

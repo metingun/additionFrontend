@@ -10,9 +10,42 @@ function htmlTemplate(responseData) {
         '<td class="budget">'+responseData.productName.substring(0, 35)+'</td>' +
         '<td class="constantProp">'+responseData.unitPriceForIn+'</td>' +
         '<td class="constantProp">'+responseData.unitPriceForOut+'</td>' +
-        '<td><button class="btn btn-info btn-lg" onclick="deleteProduct(' + responseData.id + ')">' +
+        '<td><button class="btn btn-info btn-lg" data-target="#productEditModal" data-toggle="modal" onclick="loadProductInfo(' + responseData.id + ')">' +
+        '<i class="fas fa-edit"></i></button>' +
+        '<button class="btn btn-info btn-lg" onclick="deleteProduct(' + responseData.id + ')">' +
         '<i class="far fa-trash-alt"></i></button></td>' +
         '</tr>';
+}
+var productIdd=0;
+function loadProductInfo(id){
+    productIdd=id;
+    var response=getModel(urlBackend+"product/getOneById/id="+id).data;
+    setValueById("categoryName",response.categoryName);
+    setValueById("productName",response.productName);
+    setValueById("unitPriceForIn",response.unitPriceForIn);
+    setValueById("unitPriceForOut",response.unitPriceForOut);
+}
+function updateProductData(){
+    var response1=getModel(urlBackend+"product/getOneById/id="+productIdd).data;
+
+    var productName=(getValueById("productNameEdit")==="")?response1.productName:getValueById("productNameEdit");
+    var unitPriceForIn=(getValueById("unitPriceForInEdit")==="")?response1.unitPriceForIn:getValueById("unitPriceForInEdit");
+    var unitPriceForOut=(getValueById("unitPriceForOutEdit")==="")?response1.unitPriceForOut:getValueById("unitPriceForOutEdit");
+
+    var postData={
+        "id":productIdd,
+        "productName":productName,
+        "unitPriceForIn":unitPriceForIn,
+        "unitPriceForOut":unitPriceForOut
+    }
+
+    var response=postModel(urlBackend+"product/update",postData).data;
+    if (response==="200") {
+        swal("Başarılı!", "Personel başarıyla güncellendi...", "success");
+        loadProductsPage();
+    }else{
+        swal("Hata!", "İşlem başarısız !!", "warning");
+    }
 }
 function htmlTemplateOptions(responseData) {
     return "<option value='"+responseData.categoryName+"'>"+responseData.categoryName+"</option>"
@@ -24,12 +57,17 @@ function productsPageAdmin() {
         document.getElementById("inputCategoryName").innerHTML+=htmlTemplateOptions(response2[i]);
     }
 
+    loadProductsPage();
+
+}
+function loadProductsPage(){
+    document.getElementById("productsList").innerHTML="";
     const response = getModel(urlBackend+"product/getAll").data;
     for (let i=0; i<response.length; i++){
         document.getElementById("productsList").innerHTML+=htmlTemplate(response[i]);
     }
-
 }
+
 function deleteProduct(id) {
     document.getElementById("productsRow"+id).remove();
     getModel(urlBackend+"product/deleteData/"+id);
