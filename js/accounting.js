@@ -365,8 +365,9 @@ function checkDisplayTable(id, display) {
         $scope.loadFavouriteProductList = function (sortType) {
             topFunction();
             checkDisplayTable("preloader","");
-
-            $http.get(urlBackend + "sales/favouriteProductsList/sortType=" + sortType)
+            var startDate = document.getElementById("startDate").value + " 08:00";
+            var finishDate = document.getElementById("finishDate").value + " 08:00";
+            $http.get(urlBackend + "sales/favouriteProductsListByDate/sortType=" + sortType+"/startDate="+startDate+"/finishDate="+finishDate)
                 .then(function (response) {
                     $scope.datas = response.data.data;
                     checkDisplayTable("preloader","none");

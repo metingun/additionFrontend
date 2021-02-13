@@ -144,16 +144,12 @@ function checkPay() {
 function checkPay2() {
     let cashPrice=document.getElementById("cashInput").value;
     let creditPrice=document.getElementById("creditInput").value;
-    let totalPayment=document.getElementById('totalPayment').innerHTML;
 
-    if(typePay===2){
+    if(typePay===2 && cashPrice+creditPrice!==""){
         payPartialBill(parseFloat(cashPrice),parseFloat(creditPrice));
     }
-    else if (typePay===1){
-        payPartialBill(parseFloat(totalPayment),0);
-    }
     else {
-        payPartialBill(0,parseFloat(totalPayment));
+        swal("Hata!", "Lütfen fiyat giriniz. !!", "warning");
     }
 }
 function removeRow() {

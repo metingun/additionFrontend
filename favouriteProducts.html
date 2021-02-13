@@ -19,7 +19,29 @@
 
 <body>
 <div class="container-fluid mainTitleIncome">FAVORİ ÜRÜN İSTATİSTİKLERİ</div>
+<div class="wrapper">
 
+    <label class="dateLabel">
+        <input type="text" class="dateselect" id="startDate" required="required" autocomplete="off"/>
+        <span>Başlangıç Tarihi</span>
+
+    </label>
+    <label class="dateLabel">
+        <input type="text" class="dateselect" id="finishDate" required="required" autocomplete="off"/>
+        <span>Bitiş Tarihi</span>
+    </label>
+
+    <label class="dateLabelBtn">
+        <button type="button" onclick="document.getElementById('vallInc').click();">Tarihi Sabitle</button>
+    </label><br/>
+
+    <p>
+    <h4 style="color: white; font-size: 16px;"><p>* Gün sonu almak isterseniz Bitiş Tarihini boş bırakın. Başlangıç tarihine bulunduğunuz günden bir önceki günün tarihini girin.</p>
+        <p>* İki tarih arasında toplam verileri öğrenmek isterseniz hangi tarihler arasında olacağını girin.</p></h4>
+
+    </p>
+
+</div>
 <div class="wrapper1" ng-app="sortTable" ng-controller="mainCtrl">
     <div  id="generic_price_table">
         <section>
